@@ -104,7 +104,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20180127202335871">
 <meta property="og:image" content="http://img.blog.csdn.net/20180127202900303">
 <meta property="og:image" content="http://img.blog.csdn.net/20180127203028480">
-<meta property="og:updated_time" content="2018-01-28T06:22:30.590Z">
+<meta property="og:updated_time" content="2018-01-28T06:31:03.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GithubPages+Hexo搭建个人博客">
 <meta name="twitter:description" content="如果是有个人服务器的话，建议选择WP（wordpress）搭建个人博客，可以参考这篇文章VPS+LNMP+WordPress搭建个人网站。没有的话，Hexo确实是一个很好的选择，一来简洁大方，十分优雅，二来能够自己折腾，可以设计的地方很多。好，话不多说，接下来详细介绍我搭建个人博客的过程。我的GithubPages+Hexo博客欢迎访问我的Hexo博客 安装环境win10企业版 64位Node.j">
@@ -427,14 +427,13 @@
 <p>这个过程需要几分钟时间不等，看个人网络状况。<br>安装完成后，检查是否安装成功</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 hexo -v</span><br></pre></td></tr></table></figure>
 <p><img src="http://img.blog.csdn.net/20180127195405300" alt="这里写图片描述"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 hexo init</span><br></pre></td></tr></table></figure>
-<p>初始化该文件夹，这个过程也有点漫长需要等待几分钟，最后出现Start blogging with Hexo！是不是很激动！！！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 npm install</span><br></pre></td></tr></table></figure>
-<p>开始安装所需要的组件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 hexo g</span><br></pre></td></tr></table></figure>
-<p>首次体验Hexo<br><img src="http://img.blog.csdn.net/20180127195936835" alt="这里写图片描述"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 hexo s</span><br></pre></td></tr></table></figure>
-<p>可以开启本地服务器<br><img src="http://img.blog.csdn.net/20180127200126665" alt="这里写图片描述"></p>
+<p>初始化该文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 hexo init</span><br></pre></td></tr></table></figure></p>
+<p>这个过程也有点漫长需要等待几分钟，最后出现Start blogging with Hexo！表示安装成功。</p>
+<p>开始安装所需要的组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 npm install</span><br></pre></td></tr></table></figure></p>
+<p>首次体验Hexo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 hexo g</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://img.blog.csdn.net/20180127195936835" alt="这里写图片描述"></p>
+<p>可以开启本地服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 hexo s</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://img.blog.csdn.net/20180127200126665" alt="这里写图片描述"></p>
 <p>点击<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>  可以正式体验hexo，出现Hexo的界面就表示安装成功了</p>
 <ul>
 <li>Hexo连接GithubPages</li>
@@ -444,17 +443,15 @@
 <p>这里的username为你自己的GitHub用户名</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 git config --g global user.email &quot;yabosun@163.com&quot;</span><br></pre></td></tr></table></figure>
 <p>这里user.email为你GitHub账户绑定的邮箱</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 cd ~/.ssh</span><br></pre></td></tr></table></figure>
-<p>检查是否有.ssh文件<br><img src="http://img.blog.csdn.net/20180127201413291" alt="这里写图片描述"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 ssh-keygen -t rsa -C &quot;yabosun@163.com&quot;</span><br></pre></td></tr></table></figure>
-<p>连续回车生成密钥</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 eval &quot;$(ssh-agent -s)&quot;</span><br></pre></td></tr></table></figure>
-<p>添加密钥到ssh-agent</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-<p>添加生成的SSH key到ssh-agent</p>
+<p>检查是否有.ssh文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 cd ~/.ssh</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://img.blog.csdn.net/20180127201413291" alt="这里写图片描述"></p>
+<p>生成密钥<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 ssh-keygen -t rsa -C &quot;yabosun@163.com&quot;</span><br></pre></td></tr></table></figure></p>
+<p>连续回车</p>
+<p>添加密钥到ssh-agent<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 eval &quot;$(ssh-agent -s)&quot;</span><br></pre></td></tr></table></figure></p>
+<p>添加生成的SSH key到ssh-agent<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
 <p>登陆Github，点击头像下的<code>settings</code>，添加ssh<br><img src="http://img.blog.csdn.net/20180127202217299" alt="这里写图片描述"><br>新建一个ssh<br><img src="http://img.blog.csdn.net/20180127202335871" alt="这里写图片描述"><br>将C:\Users\yabosun\ssh路径下（这里要对应自己电脑的路径）的 id_rsa.pub文件中的内容复制到key</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<p>注意这里的不用改名称。</p>
+<p>注意这里不用改任何名称。</p>
 <ul>
 <li>配置Deploy</li>
 </ul>
@@ -465,8 +462,8 @@
 <p>使用MarkDown编辑器编写好文章，编辑器最开始可以使用CSDN或者简书等博客内置的编辑器，Windows上推荐使用<code>MarkDownPad2</code>编辑器，不过我用了一下，别的功能还好，如果是要插入图片或者一些高级功能需要升级（付费），所以我现在基本就是在csdn编辑，然后导出MD文件，并上传到Github。<br>另外你也可以直接使用命令生成MD文档：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 hexo n &quot;title&quot;</span><br></pre></td></tr></table></figure>
 <p>这里的title是你文章的标题，这个时候你可以看到在<code>F:\BlogWorkspace\source\_posts</code>这个文件夹下会生成你命名的MD文章，打开可以直接编辑，具体的MarkDown语法可以参考这篇文章<a href="http://franky47.cn/2018/01/20/How%20to%20use%20MarkdownEditer/#more" title="使用Markdown编辑器写博客">http://franky47.cn/2018/01/20/How%20to%20use%20MarkdownEditer/#more</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 hexo g -d</span><br></pre></td></tr></table></figure>
-<p>即可生成并部署到GitHub服务器上，部署成功后访问你的地址：<code>http://用户名.github.io</code>，即可看到你文章的界面。到这里，基本的Hexo网站已经搭建完成。</p>
+<p>生成并部署你的文章到GitHub服务器上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 hexo g -d</span><br></pre></td></tr></table></figure></p>
+<p>部署成功后访问你的地址：<code>http://用户名.github.io</code>，即可看到你文章的界面。到这里，基本的Hexo网站已经搭建完成。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/fengxiongZz/p/7707219.html" target="_blank" rel="noopener">使用Hexo+Github一步步搭建自己的博客</a><br><a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank" rel="noopener">Node.js安装配置</a></p>
 
       
