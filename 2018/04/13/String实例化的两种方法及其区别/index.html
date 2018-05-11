@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java,String," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="把小事做好">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Franky47 | 随笔">
-<meta property="og:url" content="http://franky47.cn/tags/运算符/index.html">
+<meta name="description" content="对于Java中String对象的实例化来说，总共有两种实例化方法 直接赋值1String strA = &quot;Hello World&quot;; 利用构造方法new1String strB = new String(&quot;Hello World&quot;); String对象的实例化比较简单，但是我们这里主要是深入理解其底层的设计以及在内存中的区别，接下来说一下，通过这两种方法实例化的对象有什么不同之处 区别首先，通过两">
+<meta name="keywords" content="Java,String">
+<meta property="og:type" content="article">
+<meta property="og:title" content="String实例化的两种方法及其区别">
+<meta property="og:url" content="http://franky47.cn/2018/04/13/String实例化的两种方法及其区别/index.html">
 <meta property="og:site_name" content="Franky47 | 随笔">
-<meta property="og:description" content="把小事做好">
+<meta property="og:description" content="对于Java中String对象的实例化来说，总共有两种实例化方法 直接赋值1String strA = &quot;Hello World&quot;; 利用构造方法new1String strB = new String(&quot;Hello World&quot;); String对象的实例化比较简单，但是我们这里主要是深入理解其底层的设计以及在内存中的区别，接下来说一下，通过这两种方法实例化的对象有什么不同之处 区别首先，通过两">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-13T08:45:51.079Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Franky47 | 随笔">
-<meta name="twitter:description" content="把小事做好">
+<meta name="twitter:title" content="String实例化的两种方法及其区别">
+<meta name="twitter:description" content="对于Java中String对象的实例化来说，总共有两种实例化方法 直接赋值1String strA = &quot;Hello World&quot;; 利用构造方法new1String strB = new String(&quot;Hello World&quot;); String对象的实例化比较简单，但是我们这里主要是深入理解其底层的设计以及在内存中的区别，接下来说一下，通过这两种方法实例化的对象有什么不同之处 区别首先，通过两">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://franky47.cn/tags/运算符/"/>
+  <link rel="canonical" href="http://franky47.cn/2018/04/13/String实例化的两种方法及其区别/"/>
 
 
 
 
 
-  <title>标签: 运算符 | Franky47 | 随笔</title>
+  <title>String实例化的两种方法及其区别 | Franky47 | 随笔</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
@@ -279,54 +281,201 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>运算符<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://franky47.cn/2018/04/13/String实例化的两种方法及其区别/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YaboSun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Franky47 | 随笔">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/04/07/JavaSE--自增自减运算/" itemprop="url">
-              
-                <span itemprop="name">JavaSE--自增自减运算</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">String实例化的两种方法及其区别</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-07T22:28:26+08:00"
-              content="2018-04-07" >
-          04-07
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-13T16:45:50+08:00">
+                2018-04-13
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Java基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/13/String实例化的两种方法及其区别/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/04/13/String实例化的两种方法及其区别/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>对于Java中String对象的实例化来说，总共有两种实例化方法</p>
+<h2 id="直接赋值"><a href="#直接赋值" class="headerlink" title="直接赋值"></a>直接赋值</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String </span><span class="keyword">strA </span>= <span class="string">"Hello World"</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h2 id="利用构造方法new"><a href="#利用构造方法new" class="headerlink" title="利用构造方法new"></a>利用构造方法new</h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String</span> strB = <span class="keyword">new</span> <span class="keyword">String</span>(<span class="string">"Hello World"</span>);</span><br></pre></td></tr></table></figure>
+<p>String对象的实例化比较简单，但是我们这里主要是深入理解其底层的设计以及在内存中的区别，接下来说一下，通过这两种方法实例化的对象有什么不同之处</p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>首先，通过两种不同的方式创建的<code>strA</code> 以及 <code>strB</code> ，测试是否相等<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(strA == strB)<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>结果输出为<code>false</code><br>原因是对于操作符<code>&quot;==&quot;</code> 来说，进行比较的是<strong>数值</strong> 也就是说，这时候比较的是在堆内存空间中存放的字符串的地址，显然是不相等的，那么如果我们想要比较的是String对象的内容，需要使用<code>public boolean equals(str)</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">System</span><span class="selector-class">.out</span><span class="selector-class">.println</span>(<span class="selector-tag">strB</span><span class="selector-class">.equals</span>(<span class="selector-tag">strA</span>));</span><br></pre></td></tr></table></figure>
+<p>此时输出的结果为<code>true</code><br>继续分析对于第一种方法的创建来说，是直接在堆内存空间中开辟一块内存，存放<code>Hello World</code>， 实际上字符串常量相当于是String的匿名对象，所以在栈中有名为<code>strA</code> 的对象指向这块堆内存<br>而对于第二种方法，内存分析情况为，先是在堆内存空间中开辟内存存放<code>Hello World</code> ，接下来在<code>new</code> 的过程中又在不同的堆内存地址开辟空间并存放<code>Hello World</code> ，而在栈内存空间中的<code>strB</code> 指向的是后面开辟的堆内存空间，这样导致开辟了两块内存空间，那么第一块内存空间就成了我们所谓的<strong>垃圾</strong></p>
+<p>接下来，假设我们又定义如下对象：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String </span><span class="keyword">strC </span>= <span class="string">"Hello World"</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>那么对于</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(strA == strC)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>结果是<code>true</code><br>这是因为，对于直接赋值，这里涉及到<strong>共享设计模式</strong> 的概念，就是说在JVM的底层设计中有<strong>对象池</strong>，当创建某个对象时，就会将这个对象的匿名对象入池保存，而后如果有相同的方式创建对象，并且所对应的匿名对象是相同的内容，那么就不会在堆内存中开辟新的内存空间，而是将栈内存中的对象直接指向已有的地址，所以结果为<code>true</code><br>对于第二种方式创建的对象，是不会在对象池中保存，如果想要入池，需要手工入池，使用的方法是：public String intern()</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String</span> strD = <span class="keyword">new</span> <span class="keyword">String</span>(<span class="string">"Hello World"</span>).intern();</span><br><span class="line">System.out.<span class="built_in">println</span>(strD == strA);</span><br></pre></td></tr></table></figure>
+<p>此时输出的结果为<code>true</code> </p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>综合以上分析，这里只是为了分析比较才有了第二种创建的方法，而在实际工作中是都采用直接赋值的方法。</p>
+<h2 id="附"><a href="#附" class="headerlink" title="附"></a>附</h2><p>String类中需要记忆的常用方法，持续更新中。。。<br>| 方法 | 类型 | 描述 |<br>|—|—|—|<br>| <code>public String(char[] value)</code> | 构造 | 将字符数组转换为String |<br>| <code>public String(char[] value,int offset,int count)</code> | 构造 | 将指定索引区间的字符数组转换为String |<br>| <code>public char charAt(int index)</code> | 普通 | 返回指定索引对应的字符信息 |<br>| <code>public char[] toCharArray()</code> | 普通 | 将字符串以字符数组的形式返回 |</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/String/" rel="tag"># String</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/07/JavaSE--自增自减运算/" rel="next" title="JavaSE--自增自减运算">
+                <i class="fa fa-chevron-left"></i> JavaSE--自增自减运算
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/11/w3cschool学习心得/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -334,6 +483,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -354,8 +514,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -421,6 +590,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#直接赋值"><span class="nav-number">1.</span> <span class="nav-text">直接赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用构造方法new"><span class="nav-number">2.</span> <span class="nav-text">利用构造方法new</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">3.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附"><span class="nav-number">5.</span> <span class="nav-text">附</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -562,6 +747,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -608,6 +797,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'yabosun',
+            repo: 'yabosun.github.io',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'd1d2435a272f73879c018640781b2a72d3f3ebd7',
+            
+                client_id: '07a32ddf75348cc9a6d7'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
