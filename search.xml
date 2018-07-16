@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
+    <title><![CDATA[Java引用传递]]></title>
     <url>%2F2018%2F07%2F16%2FJava%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92%2F</url>
     <content type="text"><![CDATA[引用传递的实质就是不同栈内存空间可以指向同一块堆内存空间，并对其内容进行修改，以下通过３个代码案例详细介绍 案例一123456789101112131415161718192021222324class Message&#123; private int anInt = 10; public Message(int anInt)&#123; this.anInt = anInt; &#125; public void setAnInt(int anInt) &#123; this.anInt = anInt; &#125; public int getAnInt() &#123; return anInt; &#125;&#125;public class ReferenceDemo &#123; public static void main(String[] args)&#123; Message message = new Message(30); fun(message); System.out.println(message.getAnInt()); ｝ public static void fun(Message temp)&#123; temp.setAnInt(100); &#125;&#125; 这里需要注意的就是对于程序的执行过程都是从右向左执行，对于内存进行简单的分析可以知道， 案例二12345678910111213public class ReferenceDemo &#123; public static void main(String[] args)&#123; String string = "hello"; fun(string); System.out.println(string); &#125; public static void fun(String temp)&#123; temp = "world"; &#125;&#125;输出：hello 案例三12345678910111213141516171819202122232425262728class Message&#123; private String strInfo = "Hello"; public Message(String strInfo)&#123; this.strInfo = strInfo; &#125; public void setStrInfo(String strInfo) &#123; this.strInfo = strInfo; &#125; public String getStrInfo() &#123; return strInfo; &#125;&#125;public class ReferenceDemo &#123; public static void main(String[] args)&#123; Message message = new Message("NiHao"); fun(message); System.out.println(message.getStrInfo()); &#125; public static void fun(Message temp)&#123; temp.setStrInfo("World"); &#125;&#125;输出：World]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+      <tags>
+        <tag>Java基础</tag>
+      </tags>
   </entry>
   <entry>
-    <title></title>
+    <title><![CDATA[Ubuntu+SVN+无法连接服务器]]></title>
     <url>%2F2018%2F07%2F16%2FUbuntu%2BSVN%2B%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%2F</url>
     <content type="text"><![CDATA[项目要求要用svn，系统在这之前装上了Ubuntu想着使用svn，最开始很开心的知道Ubuntu软件源有内置的svn，好，从命令行安装成功（这部分自行网上教程）接着开始按照教程把项目迁到本地 1svn co [项目地址] 连不上服务器？查询了服务器是对的，开始各种搜索，问别人，没有解决是不是服务器没开？主机不存在？而且在Windows上输入是可以打开的，可以进入svn项目中Ubuntu跟Windows不一样？最后询问了老板服务器IP，ping了一下是可以ping到的那就是网址错误？原来是要把服务器名字改为IP地址，然后才可以 1svn co https://192.168.0.139/svn/devs 这样才可以，现在还不清楚为什么Windows可以直接用名字，而Ubuntu只能用IP地址]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>SVN</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Spark集群搭建--节点DataNode网页无显示]]></title>
@@ -24,20 +37,28 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title><![CDATA[向HDFS提交数据并读取测试WordCount案例]]></title>
     <url>%2F2018%2F07%2F16%2F%E5%90%91HDFS%E6%8F%90%E4%BA%A4%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%AF%BB%E5%8F%96%E6%B5%8B%E8%AF%95WordCount%E6%A1%88%E4%BE%8B%2F</url>
     <content type="text"><![CDATA[要使用hdfs需要切换到Hadoop安装目录下，然后使用命令 1bin/hdfs dfs -ls / 可以查看对应节点hdfs文件系统下的目录结构接着将测试数据放到hdfs上，这里是将数据放到/testdata目录下 1bin/hdfs dfs -put /word.txt /testdata 注意这里的word.txt是自己在namenode根目录创建的文件，内容如下：查看是否上传: 1bin/hdfs dfs -ls /testdata 可以看到对应的文件已经上传到hdfs文件系统中接着测试在spark-shell中直接编写wordcount程序，并从hdfs读取数据，最后返回结果进入spark安装目录，并启动spark-shell首先指定要读取的文件路径：这里需要写hdfs的路径： 1val file = sc.textFile("hdfs://your.master.ip:9000/testdata/word.txt") 接着进行计算： 1val rdd = file.flatMap(line =&gt; line.split(" ")).map(word =&gt; (word,1)).reduceByKey(_+_) 使用collect将计算的数据存储，并返回： 1rdd.collect() 最后打印显示count的结果： 1rdd.foreach(println) OK，到此简单的测试了如何将本地数据上传到hdfs文件系统，并使用spark-shell实现WordCount案例，并将计算后的数据打印输出。]]></content>
+      <categories>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>HDFS</tag>
+        <tag>WOrdCount</tag>
+      </tags>
   </entry>
   <entry>
-    <title></title>
+    <title><![CDATA[(转)通过漫画轻松掌握HDFS工作原理]]></title>
     <url>%2F2018%2F07%2F16%2F%E9%80%9A%E8%BF%87%E6%BC%AB%E7%94%BB%E8%BD%BB%E6%9D%BE%E6%8E%8C%E6%8F%A1HDFS%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%2F</url>
     <content type="text"><![CDATA[(转)通过漫画轻松掌握HDFS工作原理 原文]]></content>
       <categories>
         <category>BigData</category>
       </categories>
       <tags>
-        <tag>Hadoop</tag>
         <tag>HDFS</tag>
+        <tag>Hadoop</tag>
       </tags>
   </entry>
   <entry>
