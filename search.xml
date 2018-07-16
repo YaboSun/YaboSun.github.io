@@ -1,11 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[w3cschool学习心得]]></title>
-    <url>%2F2018%2F05%2F11%2Fw3cschool%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%2F</url>
-    <content type="text"><![CDATA[学习Java也有一段时间，对于自己来说还是一个初学者自己一个简单的学习规划的过程就是先还是把Java基础知识扎实一下，然后接下来进行JavaEE的学习，最后还是想偏向做大数据云计算这部分，也离不开对Java的学习。现在这个阶段主要还是要学习JavaWeb，然后跟着老师边学习边做大数据的项目，偶然的机会在查询资料过程中了解到了w3cschool这个网站w3cschool网址 ，感觉找到了自己想要的东西。基本上学习过程中遇到的一些内容都可以在这里找到，最开始以为只是一个学习web开发的网站，最后发现包括前端、后端等都有，而且还有移动端的还有大数据和云计算部分，我个人不喜欢那种广告很多的网站，这个网站简洁的界面也让学习很舒服，当然这只是一些第一印象。后来慢慢的深入学习，才发现上面的案例以及教程怼我的学习真的有很大的帮助，而且最关键的是在手机端也有对应的app，我差不多每天有时间就看一下上面的知识讲解，很方便快捷，其实主要还是作为一个工具来使用，因为也是刚学Java不久，很多东西都不是很熟悉，需要一边学习一边查资料，而通过查找对应的知识点，看的多了也就记忆很深刻。相信后面还会一直学习Java，一直使用w3cschool！]]></content>
+    <title></title>
+    <url>%2F2018%2F07%2F16%2FJava%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92%2F</url>
+    <content type="text"><![CDATA[引用传递的实质就是不同栈内存空间可以指向同一块堆内存空间，并对其内容进行修改，以下通过３个代码案例详细介绍 案例一123456789101112131415161718192021222324class Message&#123; private int anInt = 10; public Message(int anInt)&#123; this.anInt = anInt; &#125; public void setAnInt(int anInt) &#123; this.anInt = anInt; &#125; public int getAnInt() &#123; return anInt; &#125;&#125;public class ReferenceDemo &#123; public static void main(String[] args)&#123; Message message = new Message(30); fun(message); System.out.println(message.getAnInt()); ｝ public static void fun(Message temp)&#123; temp.setAnInt(100); &#125;&#125; 这里需要注意的就是对于程序的执行过程都是从右向左执行，对于内存进行简单的分析可以知道， 案例二12345678910111213public class ReferenceDemo &#123; public static void main(String[] args)&#123; String string = "hello"; fun(string); System.out.println(string); &#125; public static void fun(String temp)&#123; temp = "world"; &#125;&#125;输出：hello 案例三12345678910111213141516171819202122232425262728class Message&#123; private String strInfo = "Hello"; public Message(String strInfo)&#123; this.strInfo = strInfo; &#125; public void setStrInfo(String strInfo) &#123; this.strInfo = strInfo; &#125; public String getStrInfo() &#123; return strInfo; &#125;&#125;public class ReferenceDemo &#123; public static void main(String[] args)&#123; Message message = new Message("NiHao"); fun(message); System.out.println(message.getStrInfo()); &#125; public static void fun(Message temp)&#123; temp.setStrInfo("World"); &#125;&#125;输出：World]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2018%2F07%2F16%2FUbuntu%2BSVN%2B%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%2F</url>
+    <content type="text"><![CDATA[项目要求要用svn，系统在这之前装上了Ubuntu想着使用svn，最开始很开心的知道Ubuntu软件源有内置的svn，好，从命令行安装成功（这部分自行网上教程）接着开始按照教程把项目迁到本地 1svn co [项目地址] 连不上服务器？查询了服务器是对的，开始各种搜索，问别人，没有解决是不是服务器没开？主机不存在？而且在Windows上输入是可以打开的，可以进入svn项目中Ubuntu跟Windows不一样？最后询问了老板服务器IP，ping了一下是可以ping到的那就是网址错误？原来是要把服务器名字改为IP地址，然后才可以 1svn co https://192.168.0.139/svn/devs 这样才可以，现在还不清楚为什么Windows可以直接用名字，而Ubuntu只能用IP地址]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Spark集群搭建--节点DataNode网页无显示]]></title>
+    <url>%2F2018%2F07%2F16%2FSpark%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA--%E8%8A%82%E7%82%B9DataNode%E7%BD%91%E9%A1%B5%E6%97%A0%E6%98%BE%E7%A4%BA%2F</url>
+    <content type="text"><![CDATA[按照网上教程搭建好Hadoop以及Spark集群后，最开始都可以正常显示，但是有一台节点后面系统重装，再搭建过程出现问题，localhost:50070始终无法看到DataNode信息，找了很多教程试了几种方法没有解决，Spark集群的显示是正常的最后发现在Hadoop format以及启动关闭过程中/usr/local/hadoop/dfs 目录下生成data文件，网上说里面的version 文件中信息需要修改，改了也没有成功，最后想到反正都是自动生成的，可能在格式化过程中出现了问题，原有版本和新版本出现冲突，最后索性直接把这个目录下的文件删除，又把/usr/local/hadoop/tmp 重生成的文件都删除接着启动，还是不行，最后想到是不是不只得删master 中的还得删除节点的，于是把所有节点的对应文件都删除，再次启动完美运行]]></content>
+      <categories>
+        <category>Spark</category>
+      </categories>
       <tags>
-        <tag>日常随笔</tag>
+        <tag>Spark集群</tag>
+        <tag>DataNode</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2018%2F07%2F16%2F%E5%90%91HDFS%E6%8F%90%E4%BA%A4%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%AF%BB%E5%8F%96%E6%B5%8B%E8%AF%95WordCount%E6%A1%88%E4%BE%8B%2F</url>
+    <content type="text"><![CDATA[要使用hdfs需要切换到Hadoop安装目录下，然后使用命令 1bin/hdfs dfs -ls / 可以查看对应节点hdfs文件系统下的目录结构接着将测试数据放到hdfs上，这里是将数据放到/testdata目录下 1bin/hdfs dfs -put /word.txt /testdata 注意这里的word.txt是自己在namenode根目录创建的文件，内容如下：查看是否上传: 1bin/hdfs dfs -ls /testdata 可以看到对应的文件已经上传到hdfs文件系统中接着测试在spark-shell中直接编写wordcount程序，并从hdfs读取数据，最后返回结果进入spark安装目录，并启动spark-shell首先指定要读取的文件路径：这里需要写hdfs的路径： 1val file = sc.textFile("hdfs://your.master.ip:9000/testdata/word.txt") 接着进行计算： 1val rdd = file.flatMap(line =&gt; line.split(" ")).map(word =&gt; (word,1)).reduceByKey(_+_) 使用collect将计算的数据存储，并返回： 1rdd.collect() 最后打印显示count的结果： 1rdd.foreach(println) OK，到此简单的测试了如何将本地数据上传到hdfs文件系统，并使用spark-shell实现WordCount案例，并将计算后的数据打印输出。]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2018%2F07%2F16%2F%E9%80%9A%E8%BF%87%E6%BC%AB%E7%94%BB%E8%BD%BB%E6%9D%BE%E6%8E%8C%E6%8F%A1HDFS%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%2F</url>
+    <content type="text"><![CDATA[(转)通过漫画轻松掌握HDFS工作原理 原文]]></content>
+      <categories>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>Hadoop</tag>
+        <tag>HDFS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SparkSQL读取json文件简单实现（一）]]></title>
+    <url>%2F2018%2F07%2F16%2FSparkSQL%E8%AF%BB%E5%8F%96json%E6%96%87%E4%BB%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[运行前提：搭建Hadoop + Spark集群，安装jdk1.8及以上版本，Scala2.11，maven3 1、新建maven项目这里需要注意的是我们为了方便，直接勾选Create from archetype，然后从下面列表中选择scala archetype simple 2、填写GAV这里按照个人设置，说白了GroupID就是公司的域名倒过来写artifactId可以是你项目的名称version就是项目的版本号这些只是一个项目的识别，后面会体现在项目的pom.xml文件中 3、设置maven相关路径这里需要注意的就是填写setings.xml需要是你maven的设置文件的路径，第一次我按照默认的路径生成项目在运行时候报错，后面我找到了设置文件在maven的安装目录下比如我的是：/opt/apache-maven-3.5.3/conf/settings.xml其他设置按照个人喜好 4、填写项目名称接着点击finish即可 5、本地测试将原有的Scala文件删掉，重写本地的测试代码123456789101112131415161718192021222324import org.apache.spark.&#123;SparkConf, SparkContext&#125;import org.apache.spark.sql.SQLContext/** * SQLContext的使用 * */object SQLContextApp &#123; def main(args: Array[String]): Unit = &#123; val path = args(0) //1、创建相应的context val sparkConf = new SparkConf() sparkConf.setAppName("SQLContextApp").setMaster("local[*]") val sc = new SparkContext(sparkConf) val sqlContext = new SQLContext(sc) //2、进行相关的处理 val people = sqlContext.read.format("json").load(path) people.printSchema() people.show() //3、关闭资源 sc.stop() &#125;&#125; 这里需要注意的是：我们的args（0） 在本地测试时候是读取的本地的文件路径，可以在项目中进行配置找到项目的edit configuration按照下图进行设置：这里修改的是Program arguments 修改路径为：file:///usr/local/spark/examples/src/main/resources/people.json当然这里是我的json文件所在的路径，我是直接拿Spark中自带的json文件进行测试，你也可以自己按照一定的格式读取另外，可能有的坑就是在pom.xml 文件中关于Scala以及SparkSQL的依赖需要我们手动添加，因为项目最初建立的时候默认的Scala的版本比较低，需要修改为你的安装版本，比如我的是如下配置：先指定properties 1234&lt;properties&gt; &lt;scala.version&gt;2.11.12&lt;/scala.version&gt; &lt;spark.version&gt;2.1.0&lt;/spark.version&gt; &lt;/properties&gt; 然后添加依赖，如果是初次运行maven项目的话可能要下载很多依赖，要等待下完12345678910111213&lt;!---scala dependency --&gt; &lt;dependency&gt; &lt;groupId&gt;org.scala-lang&lt;/groupId&gt; &lt;artifactId&gt;scala-library&lt;/artifactId&gt; &lt;version&gt;$&#123;scala.version&#125;&lt;/version&gt; &lt;/dependency&gt; &lt;!---SparkSQL dependency--&gt; &lt;dependency&gt; &lt;groupId&gt;org.apache.spark&lt;/groupId&gt; &lt;artifactId&gt;spark-sql_2.11&lt;/artifactId&gt; &lt;version&gt;$&#123;spark.version&#125;&lt;/version&gt; &lt;/dependency&gt; 到这里基本的环境配置就完成了maven会自动进行编译，如下图：看到BUILD SUCCESS 还是很开心的 6、运行结果截图： 总结虽然实现了最终的结果，对于SparkSQL进行了简单的测试输出，但是由于是第一次实现，还是有很多不足的地方，比如代码中的函数已经过时，新的代码使用规范将会在后面进行测试，另外后面会写关于如何在集群上进行测试的教程。]]></content>
+      <categories>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>Spark</tag>
+        <tag>SparkSQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SparkSQL读取json文件简单实现（二）]]></title>
+    <url>%2F2018%2F07%2F16%2FSparkSQL%E8%AF%BB%E5%8F%96json%E6%96%87%E4%BB%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%EF%BC%88%E4%BA%8C%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[继上一篇文章中简单介绍了如何在本地调试SparkSQL，详细地址，接下来我们测试如何将该功能在集群上实现，毕竟我们生产生活中数据量是很大，需要借助集群来进行相关的功能 编译首先，我们需要将代码中设置的测试参数注释掉，这里推荐在本地测试的时候设置AppName以及Master ，而如果是想要在集群上运行，我们将对应的地方注释 1234//在测试或者生产中 AppName以及Master我们是通过脚本进行指定的（推荐）//sparkConf.setAppName("SQLContextApp").setMaster("local[*]")val sc = new SparkContext(sparkConf)val sqlContext = new SQLContext(sc) 接下来我们进入项目所在的路径 1cd /home/hadoop/Documents/IdeaProjects/XXXProject 然后输入 1mvn clean package -DskipTests 这个过程可能会下载一些Jar包，耐心等待即可 OK，没什么问题可以看到其中有一句 1Building jar: /home/hadoop/Documents/IdeaProjects/XXXProject/target/sql-1.0.jar 那么编译的jar包就在这个路径，那么我们接下来要做的就是将这个jar包传到服务器进行测试，因为我这里是在本机搭建的服务器，所以就直接使用本机进行测试，如果你连接的是远程的服务器，你可以使用scp 命令进行上传比如我现在要传到服务器根目录的/lib 目录下首先我们在home 目录创建这个文件夹mkdir lib然后进入jar 包所在目录上传scp sql-1.0.jar hadoop@slave02:/home/hadoop/lib 提交运行这里使用spark-submit 提交运行具体的参数命令：12345spark-submit \--class path.to.your.main.class \--master local[2] \/home/hadoop/lib/sql-1.0.jar \/usr/local/spark/examples/src/main/resources/people.json 这里我运行出了问题查看日志，发现无法连接到主机，应该是集群的问题，我想起来我这台电脑之前配置的集群是一个子节点，不是主节点，于是通过ssh 登录到远程服务器，并将本地的jar包上传到服务器的/data/driverLib 目录下然后在服务器上重新运行，又出现了以下错误：这时候仔细看输出应该是读取的输入路径不正确，原来指定的参数默认在服务器上是到**HDFS** 文件系统中读取文件，OK，简单，我直接把文件上传到HDFS 上应该就可以了 1hadoop fs -put /usr/local/spark-2.2.1/examples/src/main/resources/people.json hdfs://your/hdfs/path 这里涉及到HDFS 相关命令的使用所有的问题应该都解决了，好，开始运行 完美 输出！！！！！ 参考：https://spark.apache.org/docs/2.0.0/submitting-applications.html]]></content>
+      <categories>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>Spark</tag>
+        <tag>SparkSQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SparkSQL读取json文件简单实现（三）]]></title>
+    <url>%2F2018%2F07%2F16%2FSparkSQL%E8%AF%BB%E5%8F%96json%E6%96%87%E4%BB%B6%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%EF%BC%88%E4%B8%89%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[继上面实践了一些简单的读取文件，简单操作了SparkSQL的入口方法，但是要知道之前的方法都是已经过时了的方法，是Spark1.x中使用的，而最新的2.x版本使用SparkSession作为SparkSQL的入口函数接下来我们通过简单的代码来在集群操作测试 定义基本的使用格式： 12345val spark = SparkSession .builder() .appName("Spark SQL basic example") .config("spark.some.config.option", "some-value") .getOrCreate() 测试了解了基本的定义格式，我们接下来还是以之前的json 文件进行测试：在项目中新建一个SparkSessionApp，注意是新建的scala class 选择object 类型代码如下： 123456789101112131415/** * SparkSession的使用 */object SparkSessionApp &#123; def main(args: Array[String]): Unit = &#123; val spark = SparkSession .builder() .appName("SparkSessionApp") .getOrCreate() val people = spark.read.format("json").load("file:///usr/local/spark/examples/src/main/resources/people.json") people.show() spark.stop() &#125;&#125; 具体的config 参数后面详细介绍，我们先按照官网案例进行简单的输出，运行：出错了，仔细查看错误信息 1org.apache.spark.SparkException: A master URL must be set in your configuration 应该是必须指定master直接在SparkSession 后加上.master(local[2])再次运行：成功输出！ 参考：http://spark.apache.org/docs/2.1.0/sql-programming-guide.html#starting-point-sparksession]]></content>
+      <categories>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>Spark</tag>
+        <tag>SparkSQL</tag>
+        <tag>SparkSession</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[DataFrame数据操作以及与RDD互相操作案例]]></title>
+    <url>%2F2018%2F07%2F16%2FDataFrame%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C%E4%BB%A5%E5%8F%8A%E4%B8%8ERDD%E4%BA%92%E7%9B%B8%E6%93%8D%E4%BD%9C%E6%A1%88%E4%BE%8B%2F</url>
+    <content type="text"><![CDATA[Dataframe基本操作主要对于DataFrame学习的一些简单操作，代码如下： 1234567891011121314151617181920212223242526272829303132333435import org.apache.spark.sql.SparkSession/** * DataFrame 基本操作 */object DataFrameApp &#123; def main(args: Array[String]): Unit = &#123; val spark = SparkSession .builder() .master("local[2]") .appName("DataFrameApp") .getOrCreate() val peopleDF = spark.read.format("json").load("file:///usr/local/spark/examples/src/main/resources/people.json") //输出dataframe对应的schema peopleDF.printSchema() //输出前20条信息（默认值），可以指定 peopleDF.show() //查询某列所有的数据 :select name from table peopleDF.select("name").show() //查询某几列的数据并做相应计算：select name, age + 10 as new age from table peopleDF.select(peopleDF.col("name"), (peopleDF.col("age") + 10).as("new age")).show() //查询年龄大于19的 ： select * from table where age &gt; 19 peopleDF.filter(peopleDF.col("age") &gt; 19).show() //根据某一列进行分组，然后再进行聚合操作 select age, count(1) from table group by age peopleDF.groupBy("age").count().show() spark.stop() &#125;&#125; 进阶操作DataFrame与RDD互相操作—反射方式1234567891011121314151617181920212223242526272829303132import org.apache.spark.sql.SparkSession/** * DataFrame与RDD互相操作实现---反射实现 */object DataFrameRDDApp &#123; def main(args: Array[String]): Unit = &#123; val spark = SparkSession .builder() .appName("DataFrameRDDApp") .master("local[2]") .getOrCreate() //RDD =&gt; DataFrame val rdd = spark.sparkContext.textFile("/home/hadoop/infos.txt") //注意：需要导入隐式转换 import spark.implicits._ val infoDF = rdd.map(_.split(",")).map(line =&gt; Info(line(0).toInt, line(1), line(2).toInt)).toDF infoDF.show() //进行简单查询操作 infoDF.filter(infoDF.col("age") &gt; 30).show() //通过转化为info表然后调用sqlAPI进行操作 infoDF.createOrReplaceTempView("info") spark.sql("select * from info where age &gt; 30").show() spark.stop() &#125; case class Info(id: Int, name: String, age: Int)&#125; DataFrame与RDD互相操作—编程方式123456789101112131415161718def program(spark: SparkSession): Unit = &#123; /** * RDD =&gt; DataFrame 编程方式 */ // Create an RDD val rdd = spark.sparkContext.textFile("/home/hadoop/infos.txt") val infoRDD = rdd.map(_.split(",")).map(line =&gt; Row(line(0).toInt, line(1), line(2).toInt)) val structType = StructType(Array(StructField("id", IntegerType, true), StructField("name", StringType, true), StructField("age", IntegerType, true))) val infoDF = spark.createDataFrame(infoRDD, structType) infoDF.printSchema() infoDF.show() &#125; 参考：http://spark.apache.org/docs/latest/sql-programming-guide.html#datasets-and-dataframes]]></content>
+      <categories>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>Spark</tag>
+        <tag>SparkSQL</tag>
+        <tag>DataFrame</tag>
+        <tag>RDD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[实现俩个整数变量的交换]]></title>
+    <url>%2F2018%2F07%2F16%2F%E5%AE%9E%E7%8E%B0%E4%BF%A9%E4%B8%AA%E6%95%B4%E6%95%B0%E5%8F%98%E9%87%8F%E7%9A%84%E4%BA%A4%E6%8D%A2%2F</url>
+    <content type="text"><![CDATA[临时变量通过临时变量实现交换： 123456789101112131415public class Test &#123; public static void main(String[] args) &#123; int x = 10; int y = 5; int temp; temp = x; x = y; y = temp; System.out.println("x = " + x + " y = " + y); &#125;&#125;x = 5 y = 10Process finished with exit code 0 两数相加1234567891011121314public class Test &#123; public static void main(String[] args) &#123; int x = 10; int y = 5; x = x + y; y = x - y; x = x - y; System.out.println("x = " + x + " y = " + y); &#125;&#125;x = 5 y = 10Process finished with exit code 0 运算符1234567891011121314public class Test &#123; public static void main(String[] args) &#123; int x = 10; int y = 5; x = x ^ y; y = x ^ y; x = x ^ y; System.out.println("x = " + x + " y = " + y); &#125;&#125;x = 5 y = 10Process finished with exit code 0]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+      <tags>
+        <tag>Java基础</tag>
+        <tag>变量交换</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[浅谈Java中String、StringBuffer、StringBuilder]]></title>
+    <url>%2F2018%2F07%2F16%2F%E6%B5%85%E8%B0%88Java%E4%B8%ADString%E3%80%81StringBuffer%E3%80%81StringBuilder%2F</url>
+    <content type="text"><![CDATA[参考：https://www.programmergate.com/stringbuilder-vs-stringbuffer/https://blog.csdn.net/rmn190/article/details/1492013https://droidyue.com/blog/2014/12/21/string-literal-pool-in-java/ String 字符串常量 StringBuffer 字符串变量（线程安全）StringBuilder 字符串变量（非线程安全） StringStrings are constant; their values cannot be changed after they are created.这是JavaAPI中对于String的定义，就是说String是常量，一旦定义就无法改变。说到常量就不得不提到Java中的字符串常量池，通过String的俩种创建方法来进行了解 String俩种创建方式区别Java中字符串对象创建有两种形式，一种为字面量形式，如String str = “abc”;，另一种就是使用new这种标准的构造对象的方法，如String str = new String(“abc”);当Java中出现第一种字面量形式创建字符串时，JVM首先会在常量池中进行查找是否存在相同字符串对象内容的引用，如果存在，那么直接将新创建的对象指向该引用地址，如果不存在则创建新的引用对象，并把该引用对象放入常量池 1234567public class Test &#123; public static void main(String[] args) &#123; String str1 = "abc"; String str2 = "abc"; System.out.println(str1 == str2); // true &#125;&#125; 通过以上代码可以看到结果为true 也就是说str1 str2 指向的是相同的地址。现在将代码改变： 12345678public class Test &#123; public static void main(String[] args) &#123; String str1 = "abc"; str1 = "xyz"; String str2 = "abc"; System.out.println(str1 == str2); // false &#125;&#125; 当JVM看到&quot;xyz&quot;，在字符串常量池创建新的String对象存储它，再把新建的String对象的引用返回给str1，所以这时候str1 指向的是xyz ，而abc 还是存在于字符串常量池中，其值并不能被改变，所以返回false接下来继续将代码改为以下： 12345678910public class Test &#123; public static void main(String[] args) &#123; String str1 = "abc"; str1 = "xyz"; String str2 = "abc"; System.out.println(str1 == str2); // false String str3 = new String("abc"); System.out.println(str2 == str3); // false &#125;&#125; 通过new 来创建一个新的String对象str3 ，这个过程是首先，JVM在常量池中找是否存在abc ，如果找到，不做任何事情，如果没找到，在常量池中创建该对象；接着由于有new 关键字，会在栈内存空间（不是字符串常量池）中创建str3 对象，并指向堆内存空间（不是字符串常量池）中的abc ，接下来进行str2 == str3 比较的时候肯定不是引用的同一个对象，所以返回false所以说使用new创建String对象过程中是产生了俩个对象另外Java中还提供了如何将new创建的对象手动放入常量池，看以下代码： 123456789101112public class Test &#123; public static void main(String[] args) &#123; String str1 = "abc"; str1 = "xyz"; String str2 = "abc"; System.out.println(str1 == str2); // false String str3 = new String("abc"); System.out.println(str2 == str3); // false String str4 = str3.intern(); System.out.println(str2 == str4); // true &#125;&#125; 这样结果就返回的是true StringBuilder VS StringBuffer通过上面的介绍我们简单的了解了String是不可变的，是一个常量，因此当我们使用String来构建一个动态的字符串对于内存的开销是特别大的，因为对于每个字符串我们都得分配新的内存空间所以在Java开发初就提供了StringBuffer JavaAPI对于StringBuffer 的说明是A thread-safe, mutable sequence of characters.这个可变的类来创建动态的字符数组，而这个只需要分配一次内存，这与String相比是节省了大量的内存空间，另外，由于其是线程安全的，所以其所有的public 方法都是synchronized ，而这样的设计就会导致，当开发人员是在单线程的环境中时，就会增加额外的开销，而且大多数对于StringBuffer 的使用基本上都是在单线程的环境中，所以开发人员根本不需要对于synchronized 的额外开销，所以在jdk1.5之后提供一个新的类StringBuilder ，这个类不是线程安全的也不是同步的，但是其使用更加方便而且在单线程环境中更加快速 性能测试下面通过代码进行测试当创建动态的字符数组时String、StringBuffer、StringBuilder 三者需要的时间对比，测试代码如下： 123456789101112131415161718192021public class Test &#123; public static void main(String[] args) &#123; new Test().constructDynamicString(); &#125; public void constructDynamicString() &#123; long startTime = System.currentTimeMillis(); String s = "test"; //StringBuffer s = new StringBuffer("test"); //StringBuilder s = new StringBuilder("test"); for(int i=0; i&lt;100000; i++) &#123; s += "concat"; //s.append("concat"); &#125; long endTime = System.currentTimeMillis(); System.out.println("Concat time ====== " + (endTime - startTime) + "ms"); &#125;&#125; 结果如下： 123String创建时间： 43144msStringBuffer创建时间： 14msStringBuilder创建时间： 14ms 第一次测试结果都是14ms，应该是数字较小，循环1000000次，统计结果 12StringBuffer： Concat time ====== 80msStringBuilder： Concat time ====== 43ms 通过以上测试可以看出，在创建动态字符串过程中，使用String需要的时间最久，而使用StringBuilder时间最短，而且创建的次数越多这个性能越明显。 总结通过以上的分析，那么在实际使用中我们怎么选择呢？ 1、如果创建静态的字符串而且在程序中是不变的，那么选择String2、如果是创建动态字符串，并且是在多线程中使用，那么用StringBuffer3、其他的都使用StringBuilder，并且大多数情况下都是使用StringBuilder]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>String</tag>
+        <tag>StringBuffer. StringBuilder</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL+IDEA实现JDBC连接]]></title>
+    <url>%2F2018%2F07%2F16%2FMySQL%2BIDEA%E5%AE%9E%E7%8E%B0JDBC%E8%BF%9E%E6%8E%A5%2F</url>
+    <content type="text"><![CDATA[参考：MySQL JDBC Driver 5.1.33 - Time Zone IssueMySQL Connectors Java下载及使用win10系统，mysql-installer-community-5.7.21.msi安装 环境WIndows10+MySQL8.0+IDEA2017.3Enterprise MySQL安装这部分详细不多说，详细参考以上所列文章，需要注意的地方就是，在选择安装类型步骤时，如果不想安装其他组件，可以选择Custom 安装，这里安装其实可以勾选上Connector/J 也就是MySQL通过Java连接数据库的驱动，方便后面添加这个库；另外就是一定要记住自己安装时的密码！！！所有步骤安装完成以后，可以看到如下目录这时候点击MySQL 8.0 Command Line Client则会进入命令行模式这时候输入我们之前创建的密码接下来就可以输入简单的SQL命令来使用数据库了，比如查询所有的数据库 创建IDEA项目第一步在IDEA中新建工程选择Java类型，设置ProjectSDK，接着输入工程名称和存放位置，即可生成一个Java项目第二步 添加依赖jar包点击File-&gt;Project Structure-&gt;Libraries ，再点击绿色的加号，在之前MySQL安装路径下可以找到mysql-connector-java-8.0.11确定即可，这里如果默认安装路径的话就是在C:\Program Files (x86)\MySQL\Connector J 8.0 下另外，如果之前在安装MySQL时候没有选择Connector\J 也可以到官网下载然后直接导入，结果是一样的。成功导入以后就可以在工程的External Libraries 看到多出来的 通过JDBC连接数据库在之前创建的项目src 文件夹下新建类Main 在类中实现连接数据库，代码如下： 1234567891011121314151617181920212223/** * 使用JDBC连接University数据库 */ public static Connection getConnection() throws Exception&#123; Connection conn = null; // 创建一个connection try &#123; Class.forName("com.mysql.cj.jdbc.Driver"); String url = "jdbc:mysql://localhost:3306/University?" + "user=YaboSun&amp;password=root" + "&amp;useUnicode=true&amp;characterEncoding=UTF8" + "&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"; conn = DriverManager.getConnection(url); &#125; catch (ClassNotFoundException e) &#123; System.out.println("JDBC Driver not found"); e.printStackTrace(); &#125; catch (SQLException e) &#123; System.out.println("SQL 执行错误"); &#125; catch (Exception e) &#123; e.printStackTrace(); &#125; return conn; &#125; 功能测试已经建立了一个连接，接下来就是测试以下是否连接成功，并实现数据库的增、删、查、改等简单操作在主函数中实现对应功能进行测试，代码如下： 12345678910111213141516171819202122232425262728293031323334353637public static void main(String[] args) throws Exception&#123; String sql; // 用于后面对应不同的sql语句 Connection connection = getConnection(); // 获取一个connection /** * 创建一个statement * Statement里面带有很多方法，比如executeUpdate可以实现插入，更新和删除 * executeQuery可以实现查询 */ Statement statement = connection.createStatement(); sql = "create table Test(Tno char(11), Tname char(20), Tage int)"; int updateResult ; // 用于获取是否创建成功 如果不成功结果为-1 try &#123; updateResult = statement.executeUpdate(sql); if (updateResult != -1) &#123; sql = "INSERT INTO Test VALUES ('20131002318', '本科', 19)"; updateResult = statement.executeUpdate(sql); sql = "INSERT INTO Test VALUES ('1201721379', '硕士', 23)"; updateResult = statement.executeUpdate(sql); sql = "SELECT * FROM Test"; ResultSet resultSet = statement.executeQuery(sql); // executeQuery会返回结果的集合，否则返回空值 while (resultSet.next()) &#123; String Tno = resultSet.getString("Tno"); String Tname = resultSet.getString("Tname"); int Tage = resultSet.getInt("Tage"); System.out.println(Tno + " " + Tname + " " + Tage); &#125; &#125; &#125; catch (SQLException e) &#123; System.out.println("Test表已经存在"); e.printStackTrace(); &#125; sql = "DROP TABLE Test"; updateResult = statement.executeUpdate(sql); System.out.println("Test表已经删除"); connection.close(); &#125; 得到正确结果 这只是简单的进行一些测试，代码的优化还需要很大改进，如有不正确之处，望能指出。]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>JDBC</tag>
       </tags>
   </entry>
   <entry>
