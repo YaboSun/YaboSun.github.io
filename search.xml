@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MySQL存储过程与函数]]></title>
+    <url>%2F2018%2F07%2F22%2FMySQL%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%87%BD%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[参考：深入MySQL用户自定义变量：使用详解及其使用场景案例MySQL存储过程_创建-调用-参数 简介所谓存储过程是由过程化SQL语句编写的过程，该过程经过编译和优化处理后存储在数据库服务器中，在使用时可以随时调用。函数与存储过程类似，也是用户定义的持久化存储模块，不同之处在于函数需要指定返回类型。 使用案例数据库的创建主要包括以下几个表：系的信息表 Department（Dno,Dname,Daddress）学生信息表Student（Sno, Sname, Ssex, Sage, Dno）教师信息表Teacher （Tno, Tname, Ttitle, Dno）课程信息表 Course （Cno, Cname, Cpno, Ccredit）学生选课表SC（Sno,Cno,Grade）教师授课表TC（Tno,Cno,Site） 无参存储过程1、定义一个无参数存储过程DecreaseGrade，更新所有学生成绩，将其降低5%；并调用该存储过程12345678delimiter $create procedure decreasegrade () begin update SC set Grade = Grade*0.95; end $delimiter ;call decreasegrade; 需要简单说明以下这里的一些参数因为在MySQL中默认是以; 为运行结束的界定符的，而在begin...end 块可能有多个执行语句，而每个执行语句又需要以; 结束，所以需要使用delimiter 关键字将界定符暂时改为自定义的符号，这里我习惯改为$ ，而在执行完毕以后使用delimiter ; 改回为;调用一个无参存储过程只需要使用call procedurename 的形式即可。 带参存储过程2、定义一个带输入参数存储过程IncreaseGrade，将课程号为1的所有学生成绩提升5%；要求课程号作为存储过程参数传入，并调用该存储过程12345678delimiter $create procedure increasegrade ( in ccno int) begin update SC set Grade = Grade*1.05 WHERE Cno=ccno; end $delimiter ;call increasegrade(1); 这里是带参数的存储过程，对于带参数的存储过程，分为以下三种：IN输入参数：表示调用者向过程传入值（传入值可以是字面量或变量）OUT输出参数：表示过程向调用者传出值(可以返回多个值)（传出值只能是变量）INOUT输入输出参数：既表示调用者向过程传入值，又表示过程向调用者传出值（值只能是变量） 3、定义一个带有输入和输出参数的存储过程AverageStudentGrade，计算一个学生的所有选修课程的平均成绩，要求学号作为输入参数，计算结果——该生的所有选修课平均成绩作为输出参数；调用该存储过程，并输出计算结果123456789101112delimiter $create procedure averagestudentgrade ( in paramsno VARCHAR(20), out paramgrade float) begin declare g float default 0.0;select sg.ag into g from (select Sno s, avg(grade) ag from SC group by Sno) sg where sg.s=paramsno;end $delimiter ;call averagestudentgrade(20091000863, @g); 删除存储过程4、删除存储过程IncreaseGrade、DecreaseGrades 12DROP PROCEDURE DECREASEGRADE;DROP PROCEDURE INCREASEGRADE;]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>存储过程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL数据库备份与还原--mysqldump]]></title>
+    <url>%2F2018%2F07%2F22%2FMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F--mysqldump%2F</url>
+    <content type="text"><![CDATA[参考：mysql备份与还原 数据库备份格式：mysqldump -h主机名 -P端口 -u用户名 -p密码 –database 数据库名 &gt; 文件名.sql主机以及端口名可以省略不写比如我root下有数据库University 可以使用如下命令备份1mysqldump -u root -p University&gt;University.sql 接下来会提示输入数据库root密码，最后会将数据库备份到当前目录名为University.sql的文件中，或者可以自定义路径(路径存在)1mysqldump -u root -p University&gt;～/Documents/mysql_backup/University.sql 表备份格式：mysqldump -h主机名 -P端口 -u用户名 -p密码 –database 数据库名 表名 &gt; 文件名.sql 1mysqldump -u root -p University Student Course&gt;sc.sql 还原1mysql -u root -p [dbname] &lt; backup.sql 另外可以使用source命令来导入数据库常用source命令mysql&gt;source d:\test.sql，后面的参数为脚本文件。source ~/Documents/University.sql]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>数据库备份还原</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[（转）解决Ubuntu无法从外部应用启动Chrome打开链接的问题]]></title>
+    <url>%2F2018%2F07%2F22%2F%EF%BC%88%E8%BD%AC%EF%BC%89%E8%A7%A3%E5%86%B3Ubuntu%E6%97%A0%E6%B3%95%E4%BB%8E%E5%A4%96%E9%83%A8%E5%BA%94%E7%94%A8%E5%90%AF%E5%8A%A8Chrome%E6%89%93%E5%BC%80%E9%93%BE%E6%8E%A5%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[遇到的问题：从外部应用（如WPS Presentation）打开连接后，chrome只显示一个空的标签，不会自动跳转 平台：Ubuntu 16.04 Desktop解决办法：https://askubuntu.com/questions/689449/external-links-are-opened-as-blank-tabs-in-new-browser-window-in-chrome The issue is with google-chrome.desktop, and it is missing the %U argument . Open file: $HOME/.local/share/applications/google-chrome.desktop Find the line: Exec=/opt/google/chrome/chrome Add a space and %U: Exec=/opt/google/chrome/chrome %U Then save the file.翻译一下： 出现这个问题跟 google-chrome.desktop 有关，它缺少一个参数 %U。 打开文件：$HOME/.local/share/applications/google-chrome.desktop 找到下面这行: Exec=/opt/google/chrome/chrome 在末尾添加一个空格和%U: Exec=/opt/google/chrome/chrome %U 然后保存文件即可。]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Chrome</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Java引用传递]]></title>
     <url>%2F2018%2F07%2F16%2FJava%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92%2F</url>
     <content type="text"><![CDATA[引用传递的实质就是不同栈内存空间可以指向同一块堆内存空间，并对其内容进行修改，以下通过３个代码案例详细介绍 案例一123456789101112131415161718192021222324class Message&#123; private int anInt = 10; public Message(int anInt)&#123; this.anInt = anInt; &#125; public void setAnInt(int anInt) &#123; this.anInt = anInt; &#125; public int getAnInt() &#123; return anInt; &#125;&#125;public class ReferenceDemo &#123; public static void main(String[] args)&#123; Message message = new Message(30); fun(message); System.out.println(message.getAnInt()); ｝ public static void fun(Message temp)&#123; temp.setAnInt(100); &#125;&#125; 这里需要注意的就是对于程序的执行过程都是从右向左执行，对于内存进行简单的分析可以知道， 案例二12345678910111213public class ReferenceDemo &#123; public static void main(String[] args)&#123; String string = "hello"; fun(string); System.out.println(string); &#125; public static void fun(String temp)&#123; temp = "world"; &#125;&#125;输出：hello 案例三12345678910111213141516171819202122232425262728class Message&#123; private String strInfo = "Hello"; public Message(String strInfo)&#123; this.strInfo = strInfo; &#125; public void setStrInfo(String strInfo) &#123; this.strInfo = strInfo; &#125; public String getStrInfo() &#123; return strInfo; &#125;&#125;public class ReferenceDemo &#123; public static void main(String[] args)&#123; Message message = new Message("NiHao"); fun(message); System.out.println(message.getStrInfo()); &#125; public static void fun(Message temp)&#123; temp.setStrInfo("World"); &#125;&#125;输出：World]]></content>
@@ -31,9 +68,9 @@
         <category>Spark</category>
       </categories>
       <tags>
+        <tag>Ubuntu</tag>
         <tag>Spark集群</tag>
         <tag>DataNode</tag>
-        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
