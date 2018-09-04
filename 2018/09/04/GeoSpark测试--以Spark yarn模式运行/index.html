@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="日常随笔," />
+  <meta name="keywords" content="GeoSpark,BigData,Spark-yarn," />
 
 
 
@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="今天是2018年1月27日，武汉迎来了一场久违的大雪，好久之前就想着搭建博客，写写自己平时的一些心得体会。但是奈何一直沉（mang）迷（yu）学（suo）习（shi），直到上周才断断续续的搭建起最初的版本欢迎访问，后续再慢慢的更新优化。今天也算是博客网站初次搭建好第一次开始写自己的博客，所以还是蛮有纪念意义的。趁着今天这个日子，写一下自己的一些感想，包括对过去半年的总结，以及对2018年的憧憬。">
-<meta name="keywords" content="日常随笔">
+<meta name="description" content="之前简单了解了GeoSpark的一些基础知识，以及如何运行，但是仅仅在standalone模式运行测试通过，之后拿到集群上进行Spark yarn模式运行一直报错。记录一下填坑历史：由于时间过去比较久，之前过程也一直没有记录，仅仅是回忆自己部分的调试过程。 jar包配置其实到现在我还是不太清楚这部分是怎么更好的解决，希望在我叙述完，知道的同学可以帮我解惑。因为考虑到项目的本地运行是需要很多的jar">
+<meta name="keywords" content="GeoSpark,BigData,Spark-yarn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前言">
-<meta property="og:url" content="http://franky47.cn/2018/01/27/前言/index.html">
+<meta property="og:title" content="GeoSpark测试--以Spark yarn模式运行">
+<meta property="og:url" content="http://franky47.cn/2018/09/04/GeoSpark测试--以Spark yarn模式运行/index.html">
 <meta property="og:site_name" content="Franky47 | 随笔">
-<meta property="og:description" content="今天是2018年1月27日，武汉迎来了一场久违的大雪，好久之前就想着搭建博客，写写自己平时的一些心得体会。但是奈何一直沉（mang）迷（yu）学（suo）习（shi），直到上周才断断续续的搭建起最初的版本欢迎访问，后续再慢慢的更新优化。今天也算是博客网站初次搭建好第一次开始写自己的博客，所以还是蛮有纪念意义的。趁着今天这个日子，写一下自己的一些感想，包括对过去半年的总结，以及对2018年的憧憬。">
+<meta property="og:description" content="之前简单了解了GeoSpark的一些基础知识，以及如何运行，但是仅仅在standalone模式运行测试通过，之后拿到集群上进行Spark yarn模式运行一直报错。记录一下填坑历史：由于时间过去比较久，之前过程也一直没有记录，仅仅是回忆自己部分的调试过程。 jar包配置其实到现在我还是不太清楚这部分是怎么更好的解决，希望在我叙述完，知道的同学可以帮我解惑。因为考虑到项目的本地运行是需要很多的jar">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-08T01:36:28.964Z">
+<meta property="og:image" content="https://img-blog.csdn.net/20180829091448337">
+<meta property="og:image" content="https://img-blog.csdn.net/2018082910120313">
+<meta property="og:updated_time" content="2018-09-04T12:49:03.868Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前言">
-<meta name="twitter:description" content="今天是2018年1月27日，武汉迎来了一场久违的大雪，好久之前就想着搭建博客，写写自己平时的一些心得体会。但是奈何一直沉（mang）迷（yu）学（suo）习（shi），直到上周才断断续续的搭建起最初的版本欢迎访问，后续再慢慢的更新优化。今天也算是博客网站初次搭建好第一次开始写自己的博客，所以还是蛮有纪念意义的。趁着今天这个日子，写一下自己的一些感想，包括对过去半年的总结，以及对2018年的憧憬。">
+<meta name="twitter:title" content="GeoSpark测试--以Spark yarn模式运行">
+<meta name="twitter:description" content="之前简单了解了GeoSpark的一些基础知识，以及如何运行，但是仅仅在standalone模式运行测试通过，之后拿到集群上进行Spark yarn模式运行一直报错。记录一下填坑历史：由于时间过去比较久，之前过程也一直没有记录，仅仅是回忆自己部分的调试过程。 jar包配置其实到现在我还是不太清楚这部分是怎么更好的解决，希望在我叙述完，知道的同学可以帮我解惑。因为考虑到项目的本地运行是需要很多的jar">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180829091448337">
 
 
 
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://franky47.cn/2018/01/27/前言/"/>
+  <link rel="canonical" href="http://franky47.cn/2018/09/04/GeoSpark测试--以Spark yarn模式运行/"/>
 
 
 
 
 
-  <title>前言 | Franky47 | 随笔</title>
+  <title>GeoSpark测试--以Spark yarn模式运行 | Franky47 | 随笔</title>
   
 
 
@@ -295,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://franky47.cn/2018/01/27/前言/">
+    <link itemprop="mainEntityOfPage" href="http://franky47.cn/2018/09/04/GeoSpark测试--以Spark yarn模式运行/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YaboSun">
@@ -312,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前言</h1>
+          <h1 class="post-title" itemprop="name headline">GeoSpark测试--以Spark yarn模式运行</h1>
         
 
         <div class="post-meta">
@@ -324,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T13:29:41+08:00">
-                2018-01-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T20:49:03+08:00">
+                2018-09-04
               </time>
             
 
@@ -347,8 +350,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hello-World/" itemprop="url" rel="index">
-                    <span itemprop="name">Hello World</span>
+                  <a href="/categories/BigData/" itemprop="url" rel="index">
+                    <span itemprop="name">BigData</span>
                   </a>
                 </span>
 
@@ -365,8 +368,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/01/27/前言/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/01/27/前言/" itemprop="commentsCount"></span>
+                <a href="/2018/09/04/GeoSpark测试--以Spark yarn模式运行/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/09/04/GeoSpark测试--以Spark yarn模式运行/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -394,41 +397,18 @@
       
 
       
-        <p>今天是2018年1月27日，武汉迎来了一场久违的大雪，好久之前就想着搭建博客，写写自己平时的一些心得体会。但是奈何一直沉（mang）迷（yu）学（suo）习（shi），直到上周才断断续续的搭建起最初的版本<a href="http://franky47.cn">欢迎访问</a>，后续再慢慢的更新优化。今天也算是博客网站初次搭建好第一次开始写自己的博客，所以还是蛮有纪念意义的。<br>趁着今天这个日子，写一下自己的一些感想，包括对过去半年的总结，以及对2018年的憧憬。</p>
-<h2 id="总结过去"><a href="#总结过去" class="headerlink" title="总结过去"></a>总结过去</h2><ul>
-<li>认知</li>
-</ul>
-<p>日子真的是过的蛮快，经常就是一看日期，卧槽，又周日了？！细细回想，这半年来还是经历了很多。最初读研的想法就是觉得自己在大学阶段实在是没有学到什么，不知道自己怎么去找到一份满意的工作，所以读研的最开始还是怀着一颗努力学习的心的，看各种教学视频，看牛人的博客，制定自己的学习目标，摸索编译器的使用，看别人的学习经验，也是在这个阶段打定主意以后更多的从事跟Java有关的工作，可能也没什么原因，就是简单的觉得看着舒服。</p>
-<ul>
-<li>懵逼</li>
-</ul>
-<p>跟导师说明自己的想法后，很快给了我一个锻炼的机会，用Java实现一个算法，当时满怀欣喜，但是等到真正下手的时候却不知道该怎么做，所以那段时间也是一直都没啥进展，只是知道算法的流程，真的写代码时候一脸懵逼，写代码我觉得最初还是要有看的见的东西，才能提起兴趣，就这样很快半个多月就过去了，在这里要特别的感谢自己研究生的导师，并不是像别人说的研究生导师与学生是老板与员工的关系，老师真的很认真的给我讲解，甚至亲手教我一行一行的怎么实现一个简单的算法，蓝而，我最后还是没能把那个算法写出来。</p>
-<ul>
-<li>迷茫</li>
-</ul>
-<p>就这样到了正式开学，我还是脑子一片迷茫，进入实验室项目组，看了一段时间项目的代码，等到写月底总结的时候，突然发现，自己啥新的功能也没有实现，交代的任务也是做的一塌糊涂，真的毫无成就感，很多时候甚至怀疑自己是不是不适合敲代码，不懂该怎么下手，感觉东西学了很快就忘。还有就是本身对MFC实在提不起兴趣。</p>
-<ul>
-<li>新奇</li>
-</ul>
-<p>再到后来就没有做公司的项目，跑去跟导师做事情，这个过程也是收获蛮多的，学会了使用Github？SVN？好吧，你会说这些不算，老师让我去学了一下一款轻量级数据库SQlite，学了一些语法，然后就开始着手将已有的地质数据导入到这个数据库，当然这个时候实现都是用的C++，简单说，就是模仿老师写的代码，实现基本相似的功能，好，终于有了一些进展，看到自己成功把数据一行一行用代码导入数据库心里还是蛮开心的，但是，这个乱码是什么鬼！就不能给我一个完美的机会？当然在老师的帮助下修改了，后面就做了一段时间的小蜜蜂，哦不，砖瓦工更合适些。一天老师把我叫去，说这段时间你也模仿实现了一些，接下来就自己写，你实现一下这个功能，生成一个断层面，what？不懂。虽然嘴上嗯，心里还是没太搞明白。</p>
-<ul>
-<li>磨练</li>
-</ul>
-<p>差不多就到了快10月，后面就是自己的兼职实习阶段，感谢威总带我，走上了Android开发之路，去公司还是跟实验室不一样的，公司催的很紧，你必须得出东西，所以压力还是有点的，仗着脸皮厚，有时候没写出来还是拖了些天才提交，代码质量自然不用多说，现在回头看看之前写的，有点想打死自己，虽然被疯狂怼还是努力的做，也感觉自己收获很大，至少能看别人的代码，自己照着实现，然后能调通这个功能了，虽然经常因为命名混乱，考虑不周被怼，但是还是有些成就感，学到了很多Android基础的编程，这部分会在后面的博客中详细记录。</p>
-<ul>
-<li>致谢</li>
-</ul>
-<p>首先要感谢我家小七，今天也是相恋537天，感谢一路的陪伴，感谢对我的照顾。再次就是感谢遇到自己现在的导师，感谢对我的包容，对我的细心指导。最想感谢的还有就是威总，在我编程学习阶段给我很多的帮助，帮我调bug，虽然每次一脸嫌弃哈哈。还有就是感谢公司，感谢老王，让我看到自己身上最大的不足，就是学一个东西，没有认真的弄明白，只是简单的去模仿，没有真正的搞懂。也感谢遇到133的一群机电大佬（不是基佬），一起开黑，一起上分。OK，矫情的话就说到这。</p>
-<h2 id="展望未来"><a href="#展望未来" class="headerlink" title="展望未来"></a>展望未来</h2><p>2018简单计划：</p>
-<ul>
-<li>旅游</li>
-</ul>
-<p>争取抽时间出去旅游2次，目前考虑的城市有西安、成都、杭州、上海，具体待定，我带上钱，你带上我@王七宝</p>
-<ul>
-<li>学习</li>
-</ul>
-<p>深入学习Android，包括安卓的一些优化<br>学习Java，多线程编程、网络编程<br>学习web开发相关，包括JS、HTML等<br>学习python，具体还没有了解，涉及到深度学习，人工智能<br>学习在Linux系统编程开发<br>扎实计算机基础，抽时间把计算机网络、计算机操作系统、数据结构等计算机基础课程学习一下，通过牛客网编程至少通过100</p>
-<p><strong>当然最大需要改变的就是以后学习东西要努力去深入了解，不要还是走马观花。</strong><br>想法总是美好的，现实可能很残酷，希望等到2019年看这篇博客时能没那么多后悔，而更多的是收获满满。加油！</p>
+        <p>之前简单了解了GeoSpark的一些基础知识，以及如何运行，但是仅仅在standalone模式运行测试通过，之后拿到集群上进行Spark yarn模式运行一直报错。记录一下填坑历史：<br>由于时间过去比较久，之前过程也一直没有记录，仅仅是回忆自己部分的调试过程。</p>
+<h1 id="jar包配置"><a href="#jar包配置" class="headerlink" title="jar包配置"></a>jar包配置</h1><p>其实到现在我还是不太清楚这部分是怎么更好的解决，希望在我叙述完，知道的同学可以帮我解惑。<br>因为考虑到项目的本地运行是需要很多的jar包依赖，但是在集群环境上并没有这些jar包，而在看了几篇博客进行打包只是将<code>compile</code> 的包保留上传，那么我在本地打包上传到集群时候，那些依赖的jar包该怎么解决呢？<br>最开始我直接按照最简单的上传一个jar包运行，会出现错误。这里错误的原因可能有俩处，一是本身jar包缺失，导致无法产生结果，另外可能的原因就是集群的运行命令有错。<br>接下来我先排除第二个原因，因为是第一次接触，所以可能有些集群运行的指令不正确，所以我直接到Spark官网，查看了运行的指令，因为Spark本身就提供了一些案例，比如像经典的<code>WordCount</code> 以及计算<code>PI</code> 。所以我按照这个来运行，结果是可以的，这就排除了我命令上的错误。<br>那么问题应该是出在依赖上，实际上当时也查看了很多的log，但是时间过去有点久，忘记了，而且实话说对于新手的我来说，当时查看日志是真的头大，根本找不到错误的位置。所以我就想最简单的办法应该就是将集群环境配置成本地环境，然后直接运行不就可以了？<br>这应该是最粗暴的办法，但应该是行的通的。然后我就直接将需要的jar包传到了远程集群上，然后将<code>SVN</code> 上的代码直接<code>co</code> 到服务器端，最后在服务器端直接使用<code>maven</code> 编译，命令如下：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean <span class="keyword">package</span> <span class="title">-DskipTests</span></span><br></pre></td></tr></table></figure>
+<p>编译以后就可以在<code>geospark/target/</code> 目录下看到如下jar包：<br><img src="https://img-blog.csdn.net/20180829091448337" alt="这里写图片描述"><br>也就是后面我们需要通过<code>spark submit</code> 来提交运行的</p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p> 我主要测试的是<code>Geospark</code> 其中的一个案例，因为其中涉及的比较多，所以单独写了一个<code>GeoSparkAPP</code> 来进行测试，代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> gtl.geospark.app;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> gtl.geospark.enums.FileDataSplitter;</span><br><span class="line"><span class="keyword">import</span> gtl.geospark.enums.IndexType;</span><br><span class="line"><span class="keyword">import</span> gtl.geospark.spatialOperator.RangeQuery;</span><br><span class="line"><span class="keyword">import</span> gtl.geospark.spatialRDD.PointRDD;</span><br><span class="line"><span class="keyword">import</span> gtl.geospark.spatialRDD.PolygonRDD;</span><br><span class="line"><span class="keyword">import</span> gtl.jts.geom.Envelope;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.api.java.JavaSparkContext;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql.SparkSession;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.storage.StorageLevel;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GeoSparkApp</span></span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID=<span class="number">1L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> JavaSparkContext sparkContext;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String pointRDDInputLocation;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> FileDataSplitter pointRDDSplitter;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> IndexType pointRDDIndexType;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Integer pointRDDOffset;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Integer eachQueryLoopTimes;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Envelope rangeQueryWindow;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> PointRDD objectRDD;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> PolygonRDD polObjectRDD;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String polygonRDDInputLocation;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> FileDataSplitter polygonRDDSplitter;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> IndexType polygonRDDIndexType;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        SparkSession spark = SparkSession</span><br><span class="line">                .builder()</span><br><span class="line">                <span class="comment">// .master("local[*]")</span></span><br><span class="line">                .appName(<span class="string">"GeoSparkApp"</span>)</span><br><span class="line">                .getOrCreate();</span><br><span class="line">        sparkContext = JavaSparkContext.fromSparkContext(spark.sparkContext());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// pointRDDInputLocation = "/home/hadoop/Documents/data/spatialhadoop/arealm-small/arealm-small.csv";</span></span><br><span class="line">        pointRDDSplitter = FileDataSplitter.CSV;</span><br><span class="line">        pointRDDIndexType = IndexType.RTREE;</span><br><span class="line">        pointRDDOffset = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// polygonRDDInputLocation = "/home/hadoop/Documents/data/spatialhadoop/counties/county_small.tsv";</span></span><br><span class="line">        polygonRDDInputLocation = <span class="string">"hdfs://geosciences/data/spatialhadoop/counties/county_small.tsv"</span>;</span><br><span class="line">        polygonRDDSplitter = FileDataSplitter.TSV;</span><br><span class="line">        polygonRDDIndexType = IndexType.RTREE;</span><br><span class="line"></span><br><span class="line">        eachQueryLoopTimes = <span class="number">10</span>;</span><br><span class="line">        rangeQueryWindow = <span class="keyword">new</span> Envelope(<span class="number">0</span>, <span class="number">0</span>, <span class="number">10</span>, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            testSpatialRangeQuery();</span><br><span class="line">            testSpatialRangeQueryUsingIndex();</span><br><span class="line">            testPolygonRangeQuery();</span><br><span class="line">            testPolygonRangeQueryUsingIndex();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            System.out.println(<span class="string">"异常"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        sparkContext.stop();</span><br><span class="line">        System.out.println(<span class="string">"通过"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testSpatialRangeQuery</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        objectRDD = <span class="keyword">new</span> PointRDD(sparkContext, pointRDDInputLocation, pointRDDOffset, pointRDDSplitter, <span class="keyword">true</span>, StorageLevel.MEMORY_ONLY());</span><br><span class="line">        objectRDD.rawSpatialRDD.persist(StorageLevel.MEMORY_ONLY());</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; eachQueryLoopTimes; i++) &#123;</span><br><span class="line">            <span class="keyword">long</span> resultSize = RangeQuery.SpatialRangeQuery(objectRDD, rangeQueryWindow, <span class="keyword">false</span>, <span class="keyword">false</span>).count();</span><br><span class="line">            <span class="keyword">assert</span> resultSize &gt; -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testSpatialRangeQueryUsingIndex</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        objectRDD = <span class="keyword">new</span> PointRDD(sparkContext, pointRDDInputLocation, pointRDDOffset, pointRDDSplitter, <span class="keyword">true</span>, StorageLevel.MEMORY_ONLY());</span><br><span class="line">        objectRDD.buildIndex(pointRDDIndexType, <span class="keyword">false</span>);</span><br><span class="line">        objectRDD.indexedRawRDD.persist(StorageLevel.MEMORY_ONLY());</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; eachQueryLoopTimes; i++) &#123;</span><br><span class="line">            <span class="keyword">long</span> resultSize = RangeQuery.SpatialRangeQuery(objectRDD, rangeQueryWindow, <span class="keyword">false</span>, <span class="keyword">true</span>).count();</span><br><span class="line">            <span class="keyword">assert</span> resultSize &gt; -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testPolygonRangeQuery</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        polObjectRDD = <span class="keyword">new</span> PolygonRDD(sparkContext, polygonRDDInputLocation, polygonRDDSplitter, <span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; eachQueryLoopTimes; i++) &#123;</span><br><span class="line">            <span class="keyword">long</span> resultSize = RangeQuery.SpatialRangeQuery(polObjectRDD, rangeQueryWindow, <span class="keyword">false</span>, <span class="keyword">false</span>).count();</span><br><span class="line">            <span class="keyword">assert</span> resultSize &gt; -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testPolygonRangeQueryUsingIndex</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        polObjectRDD = <span class="keyword">new</span> PolygonRDD(sparkContext, polygonRDDInputLocation, polygonRDDSplitter, <span class="keyword">true</span>);</span><br><span class="line">        polObjectRDD.buildIndex(polygonRDDIndexType, <span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; eachQueryLoopTimes; i++) &#123;</span><br><span class="line">            <span class="keyword">long</span> resultSize = RangeQuery.SpatialRangeQuery(polObjectRDD, rangeQueryWindow, <span class="keyword">false</span>, <span class="keyword">true</span>).count();</span><br><span class="line">            <span class="keyword">assert</span> resultSize &gt; -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里测试的功能主要是四个，分别是没有索引的空间三角形查询、使用R树索引的空间三角形查询、<code>Polygon</code> 三角形查询、使用R树索引的空间三角形查询。<br>其中注释掉的是最开始在本地的测试代码。<br>然后使用提交命令编译：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-submit --class gtl<span class="selector-class">.geospark</span><span class="selector-class">.app</span><span class="selector-class">.GeoSparkApp</span> --master yarn --deploy-mode cluster --driver-memory <span class="number">4</span>g --executor-memory <span class="number">2</span>g geospark-<span class="number">1.0</span>-SNAPSHOT<span class="selector-class">.jar</span> hdfs:<span class="comment">//geosciences/data/spatialhadoop/counties/county_small.tsv 10</span></span><br></pre></td></tr></table></figure>
+<p>运行以后并没有看到能够读取HDFS上的数据，然后直接产生异常退出。<br>后面我又看了一些博客，说是可以在代码中将要传入的文件按照<code>args</code> 参数传入，将</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">polygonRDDInputLocation</span> = <span class="string">"hdfs://geosciences/data/spatialhadoop/counties/county_small.tsv"</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">polygonRDDInputLocation</span> = args[<span class="number">0</span>]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>然后再使用以上命令运行，成功运行：<br><img src="https://img-blog.csdn.net/2018082910120313" alt="这里写图片描述"></p>
 
       
     </div>
@@ -446,7 +426,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/日常随笔/" rel="tag"># 日常随笔</a>
+            <a href="/tags/GeoSpark/" rel="tag"># GeoSpark</a>
+          
+            <a href="/tags/BigData/" rel="tag"># BigData</a>
+          
+            <a href="/tags/Spark-yarn/" rel="tag"># Spark-yarn</a>
           
         </div>
       
@@ -459,15 +443,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/09/04/VS2017+MySQL8.0+MySQLconnector连接数据库/" rel="next" title="VS2017+MySQL8.0+MySQLconnector连接数据库">
+                <i class="fa fa-chevron-left"></i> VS2017+MySQL8.0+MySQLconnector连接数据库
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/28/GithubPages+Hexo搭建个人博客/" rel="prev" title="GithubPages+Hexo搭建个人博客">
-                GithubPages+Hexo搭建个人博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -612,7 +596,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#总结过去"><span class="nav-number">1.</span> <span class="nav-text">总结过去</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展望未来"><span class="nav-number">2.</span> <span class="nav-text">展望未来</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jar包配置"><span class="nav-number">1.</span> <span class="nav-text">jar包配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试"><span class="nav-number">2.</span> <span class="nav-text">测试</span></a></li></ol></div>
             
 
           </div>
