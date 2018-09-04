@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="MySQL,JDBC," />
+  <meta name="keywords" content="MySQL,C++,Connector/C++," />
 
 
 
@@ -79,26 +79,28 @@
 
 
 
-<meta name="description" content="参考：MySQL JDBC Driver 5.1.33 - Time Zone IssueMySQL Connectors Java下载及使用win10系统，mysql-installer-community-5.7.21.msi安装 环境WIndows10+MySQL8.0+IDEA2017.3Enterprise MySQL安装这部分详细不多说，详细参考以上所列文章，需要注意的地方就是，在选择">
-<meta name="keywords" content="MySQL,JDBC">
+<meta name="description" content="参考：官网VisualStudio连接MySQL教程使用MySQL connector/C++链接MySQL数据库C++ API方式连接mysql数据库实现增删改查C++连接mysql数据库的两种方法【C++】VS2015/VS2017连接Mysql数据库教程 实验室需要使用C++进行数据库应用开发，现将MySQL连接的过程记录如下： 环境搭建Windows10、VS2017、MySQL8.0、M">
+<meta name="keywords" content="MySQL,C++,Connector&#x2F;C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL+IDEA实现JDBC连接">
-<meta property="og:url" content="http://franky47.cn/2018/07/16/MySQL+IDEA实现JDBC连接/index.html">
+<meta property="og:title" content="VS2017+MySQL8.0+MySQLconnector连接数据库">
+<meta property="og:url" content="http://franky47.cn/2018/09/04/VS2017+MySQL8.0+MySQLconnector连接数据库/index.html">
 <meta property="og:site_name" content="Franky47 | 随笔">
-<meta property="og:description" content="参考：MySQL JDBC Driver 5.1.33 - Time Zone IssueMySQL Connectors Java下载及使用win10系统，mysql-installer-community-5.7.21.msi安装 环境WIndows10+MySQL8.0+IDEA2017.3Enterprise MySQL安装这部分详细不多说，详细参考以上所列文章，需要注意的地方就是，在选择">
+<meta property="og:description" content="参考：官网VisualStudio连接MySQL教程使用MySQL connector/C++链接MySQL数据库C++ API方式连接mysql数据库实现增删改查C++连接mysql数据库的两种方法【C++】VS2015/VS2017连接Mysql数据库教程 实验室需要使用C++进行数据库应用开发，现将MySQL连接的过程记录如下： 环境搭建Windows10、VS2017、MySQL8.0、M">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdn.net/20180714164842185">
-<meta property="og:image" content="https://img-blog.csdn.net/20180714165124410">
-<meta property="og:image" content="https://img-blog.csdn.net/20180714165238767">
-<meta property="og:image" content="https://img-blog.csdn.net/20180714165424461">
-<meta property="og:image" content="https://img-blog.csdn.net/20180714194442654">
-<meta property="og:image" content="https://img-blog.csdn.net/20180714194953584">
-<meta property="og:image" content="https://img-blog.csdn.net/20180714195707502">
-<meta property="og:updated_time" content="2018-07-16T03:04:51.216Z">
+<meta property="og:image" content="https://img-blog.csdn.net/20180723103821401">
+<meta property="og:image" content="https://img-blog.csdn.net/20180723110532899">
+<meta property="og:image" content="https://img-blog.csdn.net/20180723102854415">
+<meta property="og:image" content="https://img-blog.csdn.net/20180723104845674">
+<meta property="og:image" content="https://img-blog.csdn.net/20180723104933311">
+<meta property="og:image" content="https://img-blog.csdn.net/20180723110049878">
+<meta property="og:image" content="https://img-blog.csdn.net/20180723110327985">
+<meta property="og:image" content="https://img-blog.csdn.net/20180723111437671">
+<meta property="og:image" content="https://img-blog.csdn.net/20180723111832750">
+<meta property="og:updated_time" content="2018-09-04T12:33:26.187Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL+IDEA实现JDBC连接">
-<meta name="twitter:description" content="参考：MySQL JDBC Driver 5.1.33 - Time Zone IssueMySQL Connectors Java下载及使用win10系统，mysql-installer-community-5.7.21.msi安装 环境WIndows10+MySQL8.0+IDEA2017.3Enterprise MySQL安装这部分详细不多说，详细参考以上所列文章，需要注意的地方就是，在选择">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20180714164842185">
+<meta name="twitter:title" content="VS2017+MySQL8.0+MySQLconnector连接数据库">
+<meta name="twitter:description" content="参考：官网VisualStudio连接MySQL教程使用MySQL connector/C++链接MySQL数据库C++ API方式连接mysql数据库实现增删改查C++连接mysql数据库的两种方法【C++】VS2015/VS2017连接Mysql数据库教程 实验室需要使用C++进行数据库应用开发，现将MySQL连接的过程记录如下： 环境搭建Windows10、VS2017、MySQL8.0、M">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180723103821401">
 
 
 
@@ -128,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://franky47.cn/2018/07/16/MySQL+IDEA实现JDBC连接/"/>
+  <link rel="canonical" href="http://franky47.cn/2018/09/04/VS2017+MySQL8.0+MySQLconnector连接数据库/"/>
 
 
 
 
 
-  <title>MySQL+IDEA实现JDBC连接 | Franky47 | 随笔</title>
+  <title>VS2017+MySQL8.0+MySQLconnector连接数据库 | Franky47 | 随笔</title>
   
 
 
@@ -303,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://franky47.cn/2018/07/16/MySQL+IDEA实现JDBC连接/">
+    <link itemprop="mainEntityOfPage" href="http://franky47.cn/2018/09/04/VS2017+MySQL8.0+MySQLconnector连接数据库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YaboSun">
@@ -320,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MySQL+IDEA实现JDBC连接</h1>
+          <h1 class="post-title" itemprop="name headline">VS2017+MySQL8.0+MySQLconnector连接数据库</h1>
         
 
         <div class="post-meta">
@@ -332,8 +334,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-16T11:04:49+08:00">
-                2018-07-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T20:33:24+08:00">
+                2018-09-04
               </time>
             
 
@@ -355,8 +357,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaSE</span>
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
                   </a>
                 </span>
 
@@ -373,8 +375,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/16/MySQL+IDEA实现JDBC连接/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/07/16/MySQL+IDEA实现JDBC连接/" itemprop="commentsCount"></span>
+                <a href="/2018/09/04/VS2017+MySQL8.0+MySQLconnector连接数据库/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/09/04/VS2017+MySQL8.0+MySQLconnector连接数据库/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -402,16 +404,33 @@
       
 
       
-        <p>参考：<br><a href="https://stackoverflow.com/questions/26515700/mysql-jdbc-driver-5-1-33-time-zone-issue" target="_blank" rel="noopener">MySQL JDBC Driver 5.1.33 - Time Zone Issue</a><br><a href="https://blog.csdn.net/renwudao24/article/details/51861719" target="_blank" rel="noopener">MySQL Connectors Java下载及使用</a><br><a href="https://blog.csdn.net/u011511601/article/details/79901150" target="_blank" rel="noopener">win10系统，mysql-installer-community-5.7.21.msi安装</a></p>
-<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>WIndows10+MySQL8.0+IDEA2017.3Enterprise</p>
-<h1 id="MySQL安装"><a href="#MySQL安装" class="headerlink" title="MySQL安装"></a>MySQL安装</h1><p>这部分详细不多说，详细参考以上所列文章，需要注意的地方就是，在选择安装类型步骤时，如果不想安装其他组件，可以选择<code>Custom</code> 安装，这里安装其实可以勾选上<code>Connector/J</code> 也就是MySQL通过Java连接数据库的驱动，方便后面添加这个库；另外就是一定要记住自己安装时的密码！！！<br>所有步骤安装完成以后，可以看到如下目录<br><img src="https://img-blog.csdn.net/20180714164842185" alt="这里写图片描述"><br>这时候点击<code>MySQL 8.0 Command Line Client</code><br>则会进入命令行模式<br><img src="https://img-blog.csdn.net/20180714165124410" alt="这里写图片描述"><br>这时候输入我们之前创建的密码<br><img src="https://img-blog.csdn.net/20180714165238767" alt="这里写图片描述"><br>接下来就可以输入简单的SQL命令来使用数据库了，比如查询所有的数据库<br><img src="https://img-blog.csdn.net/20180714165424461" alt="这里写图片描述"></p>
-<h1 id="创建IDEA项目"><a href="#创建IDEA项目" class="headerlink" title="创建IDEA项目"></a>创建IDEA项目</h1><p>第一步在IDEA中新建工程<br>选择Java类型，设置ProjectSDK，接着输入工程名称和存放位置，即可生成一个Java项目<br>第二步 添加依赖jar包<br>点击<code>File-&gt;Project Structure-&gt;Libraries</code> ，再点击绿色的加号，在之前MySQL安装路径下可以找到<code>mysql-connector-java-8.0.11</code><br><img src="https://img-blog.csdn.net/20180714194442654" alt="这里写图片描述"><br>确定即可，这里如果默认安装路径的话就是在<code>C:\Program Files (x86)\MySQL\Connector J 8.0</code> 下<br>另外，如果之前在安装MySQL时候没有选择<code>Connector\J</code> 也可以到官网下载然后直接导入，结果是一样的。<br>成功导入以后就可以在工程的<code>External Libraries</code> 看到多出来的<br><img src="https://img-blog.csdn.net/20180714194953584" alt="这里写图片描述"></p>
-<h1 id="通过JDBC连接数据库"><a href="#通过JDBC连接数据库" class="headerlink" title="通过JDBC连接数据库"></a>通过JDBC连接数据库</h1><p>在之前创建的项目<code>src</code> 文件夹下新建类<code>Main</code> 在类中实现连接数据库，代码如下：</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 使用JDBC连接University数据库</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> Connection getConnection() <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">       Connection conn = <span class="keyword">null</span>; <span class="comment">// 创建一个connection</span></span><br><span class="line"></span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="keyword">Class</span>.forName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);</span><br><span class="line">           String url = <span class="string">"jdbc:mysql://localhost:3306/University?"</span></span><br><span class="line">                   + <span class="string">"user=YaboSun&amp;password=root"</span></span><br><span class="line">                   + <span class="string">"&amp;useUnicode=true&amp;characterEncoding=UTF8"</span></span><br><span class="line">               + <span class="string">"&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"</span>;</span><br><span class="line">           conn = DriverManager.getConnection(url);</span><br><span class="line">       &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">           System.out.<span class="keyword">println</span>(<span class="string">"JDBC Driver not found"</span>);</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">           System.out.<span class="keyword">println</span>(<span class="string">"SQL 执行错误"</span>);</span><br><span class="line">       &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> conn;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h1><p>已经建立了一个连接，接下来就是测试以下是否连接成功，并实现数据库的增、删、查、改等简单操作<br>在主函数中实现对应功能进行测试，代码如下：</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws Exception&#123;</span><br><span class="line">        String sql<span class="comment">; // 用于后面对应不同的sql语句</span></span><br><span class="line">        Connection connection = getConnection()<span class="comment">; // 获取一个connection</span></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 创建一个statement</span></span><br><span class="line"><span class="comment">         * Statement里面带有很多方法，比如executeUpdate可以实现插入，更新和删除</span></span><br><span class="line"><span class="comment">         * executeQuery可以实现查询</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        Statement statement = connection.createStatement()<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        sql = <span class="string">"create table Test(Tno char(11), Tname char(20), Tage int)"</span><span class="comment">;</span></span><br><span class="line">        int updateResult <span class="comment">; // 用于获取是否创建成功 如果不成功结果为-1</span></span><br><span class="line">        try &#123;</span><br><span class="line">            updateResult = statement.executeUpdate(sql)<span class="comment">;</span></span><br><span class="line">            if (updateResult != -<span class="number">1</span>) &#123;</span><br><span class="line">                sql = <span class="string">"INSERT INTO Test VALUES ('20131002318', '本科', 19)"</span><span class="comment">;</span></span><br><span class="line">                updateResult = statement.executeUpdate(sql)<span class="comment">;</span></span><br><span class="line">                sql = <span class="string">"INSERT INTO Test VALUES ('1201721379', '硕士', 23)"</span><span class="comment">;</span></span><br><span class="line">                updateResult = statement.executeUpdate(sql)<span class="comment">;</span></span><br><span class="line">                sql = <span class="string">"SELECT * FROM Test"</span><span class="comment">;</span></span><br><span class="line">                ResultSet resultSet = statement.executeQuery(sql)<span class="comment">; // executeQuery会返回结果的集合，否则返回空值</span></span><br><span class="line">                while (resultSet.next()) &#123;</span><br><span class="line">                    String Tno = resultSet.getString(<span class="string">"Tno"</span>)<span class="comment">;</span></span><br><span class="line">                    String Tname = resultSet.getString(<span class="string">"Tname"</span>)<span class="comment">;</span></span><br><span class="line">                    int Tage = resultSet.getInt(<span class="string">"Tage"</span>)<span class="comment">;</span></span><br><span class="line">                    System.out.println(Tno + <span class="string">" "</span> + Tname + <span class="string">" "</span> + Tage)<span class="comment">;</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; catch (SQLException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Test表已经存在"</span>)<span class="comment">;</span></span><br><span class="line">            e.printStackTrace()<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">        sql = <span class="string">"DROP TABLE Test"</span><span class="comment">;</span></span><br><span class="line">        updateResult = statement.executeUpdate(sql)<span class="comment">;</span></span><br><span class="line">        System.out.println(<span class="string">"Test表已经删除"</span>)<span class="comment">;</span></span><br><span class="line">        connection.<span class="keyword">close();</span></span><br><span class="line"><span class="keyword"> </span>   &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdn.net/20180714195707502" alt="这里写图片描述"><br>得到正确结果</p>
-<p>这只是简单的进行一些测试，代码的优化还需要很大改进，如有不正确之处，望能指出。</p>
+        <p>参考：<br><a href="https://dev.mysql.com/doc/connector-cpp/8.0/en/connector-cpp-apps-windows-visual-studio.html" target="_blank" rel="noopener">官网VisualStudio连接MySQL教程</a><br><a href="https://blog.csdn.net/tiaotiaoyly/article/details/5174772" target="_blank" rel="noopener">使用MySQL connector/C++链接MySQL数据库</a><br><a href="https://blog.csdn.net/u012234115/article/details/37934133" target="_blank" rel="noopener">C++ API方式连接mysql数据库实现增删改查</a><br><a href="http://developer.51cto.com/art/201104/257338.htm" target="_blank" rel="noopener">C++连接mysql数据库的两种方法</a><br><a href="https://www.cnblogs.com/flipped/p/6810216.html" target="_blank" rel="noopener">【C++】VS2015/VS2017连接Mysql数据库教程</a></p>
+<p>实验室需要使用C++进行数据库应用开发，现将MySQL连接的过程记录如下：</p>
+<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><p>Windows10、VS2017、MySQL8.0、MySQL Connector/C++ 1.1.11、boost1.67.0</p>
+<h2 id="1、创建学生管理系统数据库"><a href="#1、创建学生管理系统数据库" class="headerlink" title="1、创建学生管理系统数据库"></a>1、创建学生管理系统数据库</h2><p>MySQL数据库的安装过程这里不详细介绍，具体参考<a href="https://blog.csdn.net/u011511601/article/details/79901150" target="_blank" rel="noopener">win10系统，mysql-installer-community-5.7.21.msi安装</a>安装好MySQLServer以后，在控制台中创建数据库，输入</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> university;</span><br></pre></td></tr></table></figure>
+<p>这里为了简单测试，只是创建一张学生表，创建的表如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> student(</span><br><span class="line">	Sno <span class="built_in">int</span> ,</span><br><span class="line">	Sname <span class="built_in">varchar</span> (<span class="number">50</span>),</span><br><span class="line">	Ssex <span class="built_in">varchar</span>(<span class="number">2</span>),</span><br><span class="line">	Sage <span class="built_in">int</span> ,</span><br><span class="line">	primary <span class="keyword">key</span> (Sno)</span><br><span class="line">	);</span><br></pre></td></tr></table></figure>
+<p>插入数据：<br>为简单起见，这里只插入俩条数据<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> student(Sno, Sname, Ssex, Sage) <span class="keyword">values</span>(<span class="number">20081001197</span>,<span class="string">'李子聪'</span>,<span class="string">'M'</span>,<span class="number">17</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> student(Sno, Sname, Ssex, Sage) <span class="keyword">values</span>(<span class="number">20081001266</span>,<span class="string">'蔡景学'</span>,<span class="string">'F'</span>,<span class="number">19</span>);</span><br></pre></td></tr></table></figure></p>
+<p>创建好的结果如下：<br>在数据库命令行查看：</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdn.net/20180723103821401" alt="这里写图片描述"></p>
+<h2 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h2><p>配置依赖前，先将默认的<code>Debug</code>模式改为<code>Release</code>模式<br><img src="https://img-blog.csdn.net/20180723110532899" alt="这里写图片描述"><br>1、新建<code>TestMySQLAPP</code> 控制台项目<br><img src="https://img-blog.csdn.net/20180723102854415" alt="这里写图片描述"><br>这里或者直接新建一个空项目也可以<br>2、依赖配置</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">右键项目-&gt;属性-&gt;VC++目录</span><br></pre></td></tr></table></figure>
+<p>在<code>包含目录</code><br><img src="https://img-blog.csdn.net/20180723104845674" alt="这里写图片描述"><br>点击<code>编辑</code><br><img src="https://img-blog.csdn.net/20180723104933311" alt="这里写图片描述"><br>将已经下载解压好的<code>Connector C++ 1.1.11</code> 的<code>\include</code> 文件夹添加进去<br>比如我的解压包路径是</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:<span class="symbol">\P</span>rogram Files<span class="symbol">\M</span>ySQL<span class="symbol">\C</span>onector C++ 1.1.11<span class="symbol">\m</span>ysql-connector-c++-noinstall-1.1.11-winx64<span class="symbol">\i</span>nclude</span><br></pre></td></tr></table></figure>
+<p>以同样的方式将<code>boost1.67.0</code> 文件目录包含<br>我的解压包路径是：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">D</span>:\<span class="selector-tag">Boost1</span><span class="selector-class">.67</span><span class="selector-class">.0</span>\<span class="selector-tag">boost_1_67_0</span></span><br></pre></td></tr></table></figure>
+<p>这里需要说一下为什么需要将<code>boost</code> 库包含进去，开始的时候我没有包含这部分，但是在运行过程中在<code>mysql_connection.h</code> 文件中又引用了这个库，我开始想着直接把其中引用部分的代码路径改一下，让其指向boost包对应的路径，结果发现修改后没有保存权限，所以还是老老实实将这个库目录包含进去<br>配置好以上的以后接下来将<code>Connector/C++</code> 的lib包含进去，还是在项目的属性页</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">链接器-&gt;常规-&gt;附加库目录</span><br></pre></td></tr></table></figure>
+<p>以同样的方式添加，比如我的路径是</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">C:</span>\Program Files\MySQL\Conector C++ <span class="number">1.1</span>.<span class="number">11</span>\mysql-connector-c++-noinstall-<span class="number">1.1</span>.<span class="number">11</span>-winx64\<span class="class"><span class="keyword">lib</span></span></span><br></pre></td></tr></table></figure>
+<p>添加以后的结果如下：<br><img src="https://img-blog.csdn.net/20180723110049878" alt="这里写图片描述"><br>接着在<code>链接器-&gt;输入</code> 部分将<code>mysqlcppconn.lib</code> 添加<br><img src="https://img-blog.csdn.net/20180723110327985" alt="这里写图片描述"><br>到这里基本上就将所有的配置完成，但是在运行过程中还是出现了一些错误，这部分没有截图，所以直接将解决的方法记录，参考的文章不记得是哪些博客，这里表示感谢<br>简单来说就是需要将对应的一些动态库添加到<code>C:\Windows\System32</code> 目录中，这里我不太清楚为什么会出现错误，按照我的想法是在之前的配置中已经把<code>Connector</code> 的<code>lib</code> 全部添加到了项目中，为什么这里还是要把一些动态的库文件放到<code>C:\Windows\System32</code> 目录，但是确实结果是解决了问题。找到<code>Connector/C++</code> 解压包路径，比如我的是</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">C:</span>\Program Files\MySQL\Conector C++ <span class="number">1.1</span>.<span class="number">11</span>\mysql-connector-c++-noinstall-<span class="number">1.1</span>.<span class="number">11</span>-winx64\<span class="class"><span class="keyword">lib</span></span></span><br></pre></td></tr></table></figure>
+<p>将其中的<code>.dll</code> 文件全部拷贝粘贴到<code>C:\Windows\System32</code> 目录，然后运行即可</p>
+<h1 id="测试连接"><a href="#测试连接" class="headerlink" title="测试连接"></a>测试连接</h1><p>环境已经搭建完成，接下来测试一些简单的功能，在<code>TestMySQLAPP.cpp</code> 文件中<br><img src="https://img-blog.csdn.net/20180723111437671" alt="这里写图片描述"><br>这个文件其实就是你创建空项目的<code>Main.cpp</code> ，也就是程序的入口，添加以下代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdafx.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"mysql_connection.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cppconn/driver.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cppconn/exception.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cppconn/resultset.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cppconn/statement.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"正在执行 SELECT sage from student where sno = '20081001197'"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        sql::Driver *driver;</span><br><span class="line">        sql::Connection *con;</span><br><span class="line">        sql::Statement *stmt;</span><br><span class="line">        sql::ResultSet *res;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* 创建连接 */</span></span><br><span class="line">        driver = get_driver_instance();</span><br><span class="line">        con = driver-&gt;connect(<span class="string">"tcp://127.0.0.1:3306"</span>, <span class="string">"root"</span>, <span class="string">"root"</span>); <span class="comment">// 需要修改为你数据库的用户密码</span></span><br><span class="line">        <span class="comment">/* 连接 MySQL 数据库 university  */</span></span><br><span class="line">		con-&gt;setSchema(<span class="string">"university"</span>);</span><br><span class="line">		</span><br><span class="line">        stmt = con-&gt;createStatement();</span><br><span class="line">		res = stmt-&gt;executeQuery(<span class="string">"SELECT sage from student where sno = '20081001197'"</span>); <span class="comment">// 标准sql语句</span></span><br><span class="line">        <span class="keyword">while</span> (res-&gt;next()) &#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"\t MySQL replies: "</span>;</span><br><span class="line">            <span class="comment">/* 通过数字偏移量, 1 代表第一列 */</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; res-&gt;getInt(<span class="number">1</span>)&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">delete</span> res;</span><br><span class="line">        <span class="keyword">delete</span> stmt;</span><br><span class="line">        <span class="keyword">delete</span> con;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (sql::SQLException &amp;e) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"# ERR: SQLException in "</span> &lt;&lt; __FILE__;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"("</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="string">") on line "</span> &lt;&lt; __LINE__ &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"# ERR: "</span> &lt;&lt; e.what();</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">" (MySQL error code: "</span> &lt;&lt; e.getErrorCode();</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">", SQLState: "</span> &lt;&lt; e.getSQLState() &lt;&lt; <span class="string">" )"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> EXIT_SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果：<br><img src="https://img-blog.csdn.net/20180723111832750" alt="这里写图片描述"><br>与数据库中结果一致，正确连接！</p>
 
       
     </div>
@@ -431,7 +450,9 @@
           
             <a href="/tags/MySQL/" rel="tag"># MySQL</a>
           
-            <a href="/tags/JDBC/" rel="tag"># JDBC</a>
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+            <a href="/tags/Connector-C/" rel="tag"># Connector/C++</a>
           
         </div>
       
@@ -444,8 +465,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/13/String实例化的两种方法及其区别/" rel="next" title="String实例化的两种方法及其区别">
-                <i class="fa fa-chevron-left"></i> String实例化的两种方法及其区别
+              <a href="/2018/07/22/MySQL存储过程与函数/" rel="next" title="MySQL存储过程与函数">
+                <i class="fa fa-chevron-left"></i> MySQL存储过程与函数
               </a>
             
           </div>
@@ -453,10 +474,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/16/浅谈Java中String、StringBuffer、StringBuilder/" rel="prev" title="浅谈Java中String、StringBuffer、StringBuilder">
-                浅谈Java中String、StringBuffer、StringBuilder <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -601,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL安装"><span class="nav-number">2.</span> <span class="nav-text">MySQL安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建IDEA项目"><span class="nav-number">3.</span> <span class="nav-text">创建IDEA项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过JDBC连接数据库"><span class="nav-number">4.</span> <span class="nav-text">通过JDBC连接数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#功能测试"><span class="nav-number">5.</span> <span class="nav-text">功能测试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境搭建"><span class="nav-number">1.</span> <span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、创建学生管理系统数据库"><span class="nav-number">1.1.</span> <span class="nav-text">1、创建学生管理系统数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目配置"><span class="nav-number">1.2.</span> <span class="nav-text">项目配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试连接"><span class="nav-number">2.</span> <span class="nav-text">测试连接</span></a></li></ol></div>
             
 
           </div>
